@@ -11,12 +11,15 @@ import Member3 from './src/pages/Member3';
 import Payment from './src/pages/Payment';
 import Allpayments from './src/pages/Allpayments';
 import Login4 from './src/pages/Login4';
+import SecurityQuestion from './src/pages/SecurityQuestion';
+import Login5 from './src/pages/Login5';
+import Dashboard from './src/pages/Dashboard';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='Login4' screenOptions={{
+      <Stack.Navigator initialRouteName='Dashboard' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -29,6 +32,8 @@ function App() {
         <Stack.Screen name="Payment" component={Payment} />
         <Stack.Screen name="Allpayments" component={Allpayments} />
         <Stack.Screen name="Login4" component={Login4} />
+        <Stack.Screen name="SecurityQuestion" component={SecurityQuestion} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
       </Stack.Navigator>
     </NavigationContainer>
   );
