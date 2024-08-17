@@ -26,12 +26,17 @@ import TradingandInvestingEdu from './src/pages/TradingAndInvestingEdu';
 import TradingandInvestingEdu2 from './src/pages/TradingandInvestingEdu2';
 import TradingandInvestingEdu3 from './src/pages/TradingandInvestingEdu3';
 import Discover from './src/pages/Dicover';
+import Markets from './src/pages/Markets';
+import Invest from './src/pages/Invest';
+import Position from './src/pages/Position';
+import Markets2 from './src/pages/Markets2';
+import DailyMarketUpdates from './src/pages/DailyMarketUpdates';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='Discover' screenOptions={{
+      <Stack.Navigator initialRouteName='DailyMarketUpdates' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -59,6 +64,12 @@ function App() {
         <Stack.Screen name="TradingandInvestingEdu2" component={TradingandInvestingEdu2} />
         <Stack.Screen name="TradingandInvestingEdu3" component={TradingandInvestingEdu3} />
         <Stack.Screen name="Discover" component={Discover} />
+        <Stack.Screen name="Markets" component={Markets} />
+        <Stack.Screen name="Invest" component={Invest} />
+        <Stack.Screen name="Position" component={Position} />
+        <Stack.Screen name="Markets2" component={Markets2} />
+        <Stack.Screen name="DailyMarketUpdates" component={DailyMarketUpdates} />
+
 
 
       </Stack.Navigator>
