@@ -19,6 +19,7 @@
     "nativewind": "^2.0.11",
     "react": "18.2.0",
     "react-native": "0.74.4",
+    "react-native-chart-kit": "^6.12.0",
     "react-native-charts-wrapper": "^0.6.0",
     "react-native-fast-image": "^8.6.3",
     "react-native-gifted-charts": "^1.4.29",

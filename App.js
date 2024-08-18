@@ -31,12 +31,20 @@ import Invest from './src/pages/Invest';
 import Position from './src/pages/Position';
 import Markets2 from './src/pages/Markets2';
 import DailyMarketUpdates from './src/pages/DailyMarketUpdates';
+import RecentActivity from './src/pages/RecentActivity';
+import CreditPortal from './src/pages/CreditPortal';
+import CreditEducation from './src/pages/CreditEducation';
+import CreditEducationPdf from './src/pages/CreditEducationPdf';
+import AdsCredit from './src/pages/AdsCredit';
+import CreditNewsFull from './src/pages/CreditNewsFull';
+import ConsumerCredit from './src/pages/ConsumerCredit';
+import MoneyManagement1 from './src/pages/MoneyManagement1';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='DailyMarketUpdates' screenOptions={{
+      <Stack.Navigator initialRouteName='ConsumerCredit' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -69,6 +77,16 @@ function App() {
         <Stack.Screen name="Position" component={Position} />
         <Stack.Screen name="Markets2" component={Markets2} />
         <Stack.Screen name="DailyMarketUpdates" component={DailyMarketUpdates} />
+        <Stack.Screen name="RecentActivity" component={RecentActivity} />
+        <Stack.Screen name="CreditPortal" component={CreditPortal} />
+        <Stack.Screen name="CreditEducation" component={CreditEducation} />
+        <Stack.Screen name="CreditEducationPdf" component={CreditEducationPdf} />
+        <Stack.Screen name="AdsCredit" component={AdsCredit} />
+        <Stack.Screen name="CreditNewsFull" component={CreditNewsFull} />
+        <Stack.Screen name="ConsumerCredit" component={ConsumerCredit} />
+        <Stack.Screen name="MoneyManagement1" component={MoneyManagement1} />
+
+
 
 
 
