@@ -39,12 +39,19 @@ import AdsCredit from './src/pages/AdsCredit';
 import CreditNewsFull from './src/pages/CreditNewsFull';
 import ConsumerCredit from './src/pages/ConsumerCredit';
 import MoneyManagement1 from './src/pages/MoneyManagement1';
+import MoneyManagement2 from './src/pages/MoneyManagement2';
+import MoneyManagement3 from './src/pages/MoneyManagement3';
+import Taxportal from './src/pages/Taxportal';
+import TaxEducation from './src/pages/TaxEducation';
+import TaxEducationPdf from './src/pages/TaxEducationPdf';
+import AdsTaxPortal from './src/pages/AdsTaxPortal';
+import TaxNewsFull from './src/pages/TaxNewsFull';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='ConsumerCredit' screenOptions={{
+      <Stack.Navigator initialRouteName='TaxNewsFull' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -85,6 +92,15 @@ function App() {
         <Stack.Screen name="CreditNewsFull" component={CreditNewsFull} />
         <Stack.Screen name="ConsumerCredit" component={ConsumerCredit} />
         <Stack.Screen name="MoneyManagement1" component={MoneyManagement1} />
+        <Stack.Screen name="MoneyManagement2" component={MoneyManagement2} />
+        <Stack.Screen name="MoneyManagement3" component={MoneyManagement3} />
+        <Stack.Screen name="Taxportal" component={Taxportal} />
+        <Stack.Screen name="TaxEducation" component={TaxEducation} />
+        <Stack.Screen name="TaxEducationPdf" component={TaxEducationPdf} />
+        <Stack.Screen name="AdsTaxPortal" component={AdsTaxPortal} />
+        <Stack.Screen name="TaxNewsFull" component={TaxNewsFull} />
+
+
 
 
 
