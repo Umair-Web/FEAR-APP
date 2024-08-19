@@ -46,12 +46,13 @@ import TaxEducation from './src/pages/TaxEducation';
 import TaxEducationPdf from './src/pages/TaxEducationPdf';
 import AdsTaxPortal from './src/pages/AdsTaxPortal';
 import TaxNewsFull from './src/pages/TaxNewsFull';
+import MaintainTaxCodes from './src/pages/MaintainTaxCodes';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='TaxNewsFull' screenOptions={{
+      <Stack.Navigator initialRouteName='MaintainTaxCodes' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -99,6 +100,7 @@ function App() {
         <Stack.Screen name="TaxEducationPdf" component={TaxEducationPdf} />
         <Stack.Screen name="AdsTaxPortal" component={AdsTaxPortal} />
         <Stack.Screen name="TaxNewsFull" component={TaxNewsFull} />
+        <Stack.Screen name="MaintainTaxCodes" component={MaintainTaxCodes} />
 
 
 
