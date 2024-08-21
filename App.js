@@ -51,12 +51,16 @@ import TaxAudit from './src/pages/TaxAudit';
 import ExpenseTracking from './src/pages/ExpenseTracking';
 import FicoScoring from './src/pages/FicoScoring';
 import ExpenseTracking2 from './src/pages/ExpenseTracking2';
+import Tax1 from './src/pages/Tax1';
+import Tax2 from './src/pages/Tax2';
+import Communities1 from './src/pages/Communities1';
+import Communities2 from './src/pages/Communities2';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='ExpenseTracking2' screenOptions={{
+      <Stack.Navigator initialRouteName='Communities2' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -109,6 +113,11 @@ function App() {
         <Stack.Screen name="ExpenseTracking" component={ExpenseTracking} />
         <Stack.Screen name="FicoScoring" component={FicoScoring} />
         <Stack.Screen name="ExpenseTracking2" component={ExpenseTracking2} />
+        <Stack.Screen name="Tax1" component={Tax1} />
+        <Stack.Screen name="Tax2" component={Tax2} />
+        <Stack.Screen name="Communities1" component={Communities1} />
+        <Stack.Screen name="Communities2" component={Communities2} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
