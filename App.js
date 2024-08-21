@@ -47,12 +47,16 @@ import TaxEducationPdf from './src/pages/TaxEducationPdf';
 import AdsTaxPortal from './src/pages/AdsTaxPortal';
 import TaxNewsFull from './src/pages/TaxNewsFull';
 import MaintainTaxCodes from './src/pages/MaintainTaxCodes';
+import TaxAudit from './src/pages/TaxAudit';
+import ExpenseTracking from './src/pages/ExpenseTracking';
+import FicoScoring from './src/pages/FicoScoring';
+import ExpenseTracking2 from './src/pages/ExpenseTracking2';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='MaintainTaxCodes' screenOptions={{
+      <Stack.Navigator initialRouteName='ExpenseTracking2' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -101,13 +105,10 @@ function App() {
         <Stack.Screen name="AdsTaxPortal" component={AdsTaxPortal} />
         <Stack.Screen name="TaxNewsFull" component={TaxNewsFull} />
         <Stack.Screen name="MaintainTaxCodes" component={MaintainTaxCodes} />
-
-
-
-
-
-
-
+        <Stack.Screen name="TaxAudit" component={TaxAudit} />
+        <Stack.Screen name="ExpenseTracking" component={ExpenseTracking} />
+        <Stack.Screen name="FicoScoring" component={FicoScoring} />
+        <Stack.Screen name="ExpenseTracking2" component={ExpenseTracking2} />
       </Stack.Navigator>
     </NavigationContainer>
   );
