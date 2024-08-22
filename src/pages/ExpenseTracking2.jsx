@@ -19,7 +19,7 @@ const ExpenseTracking2 = () => {
                         <View className='flex-row gap-x-6 mt-2'>
                             <View className='flex-col items-center gap-y-2'>
                                 <Image className='w-[85px] h-[85px] rounded-full' source={require("../assets/download.jpeg")} />
-                                <Text className='font-medium text-[#003655] text-[10px]'>TAX FILLING</Text>
+                                <Text className='font-medium text-[#003655] text-[10px]'>Login as</Text>
                             </View>
                             <View className='flex-col items-start gap-y-2'>
                                 <Text className='font-medium text-[#003655] text-[13px]'>xxxxxxxxx2914</Text>

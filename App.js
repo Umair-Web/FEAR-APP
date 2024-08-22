@@ -55,12 +55,17 @@ import Tax1 from './src/pages/Tax1';
 import Tax2 from './src/pages/Tax2';
 import Communities1 from './src/pages/Communities1';
 import Communities2 from './src/pages/Communities2';
+import ChatRoom from './src/pages/ChatRoom';
+import AudioRoom from './src/pages/AudioRoom';
+import ChatRoom2 from './src/pages/ChatRoom2';
+import AiAssistant from './src/pages/AiAssistant';
+import Money from './src/pages/Money';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='Communities2' screenOptions={{
+      <Stack.Navigator initialRouteName='Money' screenOptions={{
       headerShown: false
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -117,6 +122,11 @@ function App() {
         <Stack.Screen name="Tax2" component={Tax2} />
         <Stack.Screen name="Communities1" component={Communities1} />
         <Stack.Screen name="Communities2" component={Communities2} />
+        <Stack.Screen name="ChatRoom" component={ChatRoom} />
+        <Stack.Screen name="AudioRoom" component={AudioRoom} />
+        <Stack.Screen name="ChatRoom2" component={ChatRoom2} />
+        <Stack.Screen name="AiAssistant" component={AiAssistant} />
+        <Stack.Screen name="Money" component={Money} />
 
       </Stack.Navigator>
     </NavigationContainer>
