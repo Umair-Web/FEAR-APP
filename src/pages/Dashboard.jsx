@@ -24,14 +24,14 @@ const Dashboard = () => {
             </View>
             <View className='px-5'>
                 <View className=' mt-10 flex-row items-center justify-between'>
-                    <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                        <Image source={require("../assets/Arrow1.png")} />
-                    </TouchableOpacity>
-                    <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
-                    <Text className="text-[18px] font-normal text-black">David Walker</Text>
-                    <Image source={require("../assets/notification.png")} />
-                    <Image source={require("../assets/questionmark.png")} />
-                    <Image source={require("../assets/settings.png")} />
+                <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
+                <Image source={require("../assets/Arrow1.png")} />
+            </TouchableOpacity>
+            <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
+            <Text className="text-[18px] font-normal text-black">David Walker</Text>
+            <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
+            <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
+            <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
                 </View>
                 <Text className='text-3xl text-black font-semibold'>Welcome David!</Text>
                 <Text className='text-2xl text-black font-normal text-center'>Financial Portal Tab</Text>
@@ -222,11 +222,9 @@ const Dashboard = () => {
                 </View>
             </View>
             <View className="w-full absolute inset-0 justify-center items-center top-44 opacity-100 -z-20">
-            <Image
-                className='w-full h-[310px]'
-                source={require('../assets/FearLogoBlurred.png')}
-            />
+          
         </View>
+        <BgImage/>
         </SafeAreaView>
 
     );

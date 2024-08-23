@@ -60,13 +60,21 @@ import AudioRoom from './src/pages/AudioRoom';
 import ChatRoom2 from './src/pages/ChatRoom2';
 import AiAssistant from './src/pages/AiAssistant';
 import Money from './src/pages/Money';
+import Budget from './src/pages/Budget';
+import MoneyManagementEducation1 from './src/pages/MoneyManagementEducation1';
+import MoneyManagementEduPdf from './src/pages/MoneyManagementEduPdf';
+import AdsMoneyManagement from './src/pages/AdsMoneyManagement';
+import MoneyManagementFull from './src/pages/MoneyManagementFull';
+import FinancialFreedom from './src/pages/FinancialFreedom';
+import FinancialFreedomEdu from './src/pages/FinancialFreedomEdu';
+import BlockTaxPrep from './src/pages/BlockTaxPerp';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='Money' screenOptions={{
-      headerShown: false
+      <Stack.Navigator initialRouteName='GetStarted' screenOptions={{
+      headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
         <Stack.Screen name="Login" component={Login} />
@@ -127,7 +135,14 @@ function App() {
         <Stack.Screen name="ChatRoom2" component={ChatRoom2} />
         <Stack.Screen name="AiAssistant" component={AiAssistant} />
         <Stack.Screen name="Money" component={Money} />
-
+        <Stack.Screen name="Budget" component={Budget} />
+        <Stack.Screen name="MoneyManagementEducation1" component={MoneyManagementEducation1} />
+        <Stack.Screen name="MoneyManagementEduPdf" component={MoneyManagementEduPdf} />
+        <Stack.Screen name="AdsMoneyManagement" component={AdsMoneyManagement} />
+        <Stack.Screen name="MoneyManagementFull" component={MoneyManagementFull} />
+        <Stack.Screen name="FinancialFreedom" component={FinancialFreedom} />
+        <Stack.Screen name="FinancialFreedomEdu" component={FinancialFreedomEdu} />
+        <Stack.Screen name="BlockTaxPrep" component={BlockTaxPrep} />
       </Stack.Navigator>
     </NavigationContainer>
   );

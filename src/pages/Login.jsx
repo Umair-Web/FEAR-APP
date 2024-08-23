@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { SafeAreaView, ScrollView, TextInput, Button, Text, StyleSheet, View, Image, TouchableWithoutFeedback, Keyboard, Platform, ImageBackground, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import bgimage from "../assets/Rectangle1.png"
 import LinearGradient from 'react-native-linear-gradient'
+import { useNavigation } from '@react-navigation/native'
 const Login = () => {
 
     const [email, setEmail] = useState('');
@@ -18,11 +19,13 @@ const Login = () => {
     const handleSubmit = () => {
         alert(`Email: ${email}\nPassword: ${password}`);
     };
+
+    const navigation=useNavigation();
     return (
         <SafeAreaView className='flex-1'>
             <ImageBackground className='flex-1 items-start px-5 py-2 relative' source={require("../assets/Rectangle1.png")}>
                 <View className='absolute ml-5 mt-3'>
-                    <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
+                    <TouchableOpacity onPress={()=>(navigation.goBack())} className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
                 </View>
@@ -104,7 +107,7 @@ const Login = () => {
                             style={{ width: "300px", height: "0px",  shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 120, }}
                             start={{ x: 0, y: 0 }}
                             end={{ x: 1, y: 1 }}>
-                            <TouchableOpacity className='w-[300px] h-[50px] flex-row justify-center items-center'>
+                            <TouchableOpacity onPress={()=>(navigation.navigate("Dashboard"))} className='w-[300px] h-[50px] flex-row justify-center items-center'>
                                 <Text className='text-white text-[17px] font-normal'>Login</Text>
                                 <Image className='ml-2 h-[17px] w-[17px]' source={require("../assets/right.png")}></Image>
                                
@@ -112,7 +115,7 @@ const Login = () => {
                         </LinearGradient>
                         <View className='mt-4  justify-center flex-row'>
                         <Text className='text-white text-[14px] font-normal '>Not a member? </Text>
-                        <Text className='text-[14px] font-semibold text-[#0089D6]'>Sign Up</Text>
+                        <Text onPress={()=>(navigation.navigate("Register"))} className='text-[14px] font-semibold text-[#0089D6]'>Sign Up</Text>
                         </View>
                         
                     </View>

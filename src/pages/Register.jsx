@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, TextInput, Text, StyleSheet, View, Image, TouchableWithoutFeedback, Keyboard, Platform, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
+import { useNavigation } from '@react-navigation/native'
 const Register = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -21,12 +21,13 @@ const Register = () => {
 
     const handleSubmit = () => {
         alert(`First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPassword: ${password}\nDate of Birth: ${dateOfBirth}\nCity: ${city}\nAddress: ${address}`);
+        navigation.navigate("Dashboard")
     };
-
+    const navigation=useNavigation();
     return (
         <SafeAreaView className='flex-1 items-start px-5 py-2 relative'>
             <View className='absolute ml-5 mt-3'>
-                <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
+                <TouchableOpacity onPress={()=>(navigation.goBack())} className='py-2 px-4 rounded-2xl bg-black/10'>
                     <Image source={require("../assets/Arrow1.png")} />
                 </TouchableOpacity>
             </View>
