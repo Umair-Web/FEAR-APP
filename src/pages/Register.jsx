@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, TextInput, Text, StyleSheet, View, Image, TouchableWithoutFeedback, Keyboard, Platform, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { SafeAreaView, ScrollView, TextInput, Text, StyleSheet, View, Image, TouchableWithoutFeedback, Keyboard, Platform, TouchableOpacity, KeyboardAvoidingView,ActivityIndicator, Alert } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+
 const Register = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -10,24 +13,67 @@ const Register = () => {
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [city, setCity] = useState('');
     const [address, setAddress] = useState('');
+    const [loader,setLoader]=useState(false)
 
-    const handleFirstNameChange = (text) => setFirstName(text);
-    const handleLastNameChange = (text) => setLastName(text);
-    const handleEmailChange = (text) => setEmail(text);
-    const handlePasswordChange = (text) => setPassword(text);
-    const handleDateOfBirthChange = (text) => setDateOfBirth(text);
-    const handleCityChange = (text) => setCity(text);
-    const handleAddressChange = (text) => setAddress(text);
+    const navigation = useNavigation();
 
     const handleSubmit = () => {
-        alert(`First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPassword: ${password}\nDate of Birth: ${dateOfBirth}\nCity: ${city}\nAddress: ${address}`);
-        navigation.navigate("Dashboard")
+        setLoader(true)
+        auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(userCredential => {
+                const user = userCredential.user;
+                console.log('User account created & signed in!', user.uid);
+
+                // Save additional user info in Firestore
+                firestore()
+                    .collection('Users')
+                    .doc(user.uid)
+                    .set({
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        dateOfBirth: dateOfBirth,
+                        city: city,
+                        address: address,
+                        uid: user.uid,
+                        password:password
+                    })
+                    .then(() => {
+                        console.log('User data added to Firestore!');
+                    
+                        navigation.navigate("Dashboard");
+                        setLoader(false)
+                    })
+                    .catch(error => {
+                        console.error("Error adding user data to Firestore: ", error);
+                        setLoader(false)
+                        
+                    });
+            })
+            .catch(error => {
+                if (error.code === 'auth/email-already-in-use') {
+                    console.log('That email address is already in use!');
+                    setLoader(false)
+                }
+
+                if (error.code === 'auth/invalid-email') {
+                    console.log('That email address is invalid!');
+                    setLoader(false)
+                }
+
+                console.error(error);
+            });
     };
-    const navigation=useNavigation();
+
     return (
+        <>
+        { loader ? <SafeAreaView className="flex-1 items-center justify-center">
+            <ActivityIndicator size={"large"} color={"#0078BB"}/>
+        </SafeAreaView>:
         <SafeAreaView className='flex-1 items-start px-5 py-2 relative'>
             <View className='absolute ml-5 mt-3'>
-                <TouchableOpacity onPress={()=>(navigation.goBack())} className='py-2 px-4 rounded-2xl bg-black/10'>
+                <TouchableOpacity onPress={() => (navigation.goBack())} className='py-2 px-4 rounded-2xl bg-black/10'>
                     <Image source={require("../assets/Arrow1.png")} />
                 </TouchableOpacity>
             </View>
@@ -54,7 +100,7 @@ const Register = () => {
                                         <TextInput
                                             className='text-black justify-start items-center h-[48px] rounded-md bg-black/10 px-3'
                                             value={firstName}
-                                            onChangeText={handleFirstNameChange}
+                                            onChangeText={setFirstName}
                                             placeholder="John"
                                             autoCapitalize="none"
                                             placeholderTextColor={"#333"}
@@ -69,7 +115,7 @@ const Register = () => {
                                         <TextInput
                                              className='text-black justify-start items-center h-[48px] rounded-md bg-black/10 px-3'
                                             value={lastName}
-                                            onChangeText={handleLastNameChange}
+                                            onChangeText={setLastName}
                                             placeholder="Doe"
                                             autoCapitalize="none"
                                             placeholderTextColor={"#333"}
@@ -88,7 +134,7 @@ const Register = () => {
                                     <TextInput
                                         className='ml-2 text-black'
                                         value={email}
-                                        onChangeText={handleEmailChange}
+                                        onChangeText={setEmail}
                                         placeholder="Enter your email"
                                         keyboardType="email-address"
                                         autoCapitalize="none"
@@ -106,7 +152,7 @@ const Register = () => {
                                 <TextInput
                                     className='ml-3 text-black '
                                     value={password}
-                                    onChangeText={handlePasswordChange}
+                                    onChangeText={setPassword}
                                     placeholder="Enter your password"
                                     placeholderTextColor="#333"
                                     secureTextEntry={true}
@@ -124,7 +170,7 @@ const Register = () => {
                                         <TextInput
                                          className='text-black justify-start items-center h-[48px] rounded-md bg-black/10 px-3'
                                             value={dateOfBirth}
-                                            onChangeText={handleDateOfBirthChange}
+                                            onChangeText={setDateOfBirth}
                                             placeholder="DD/MM/YYYY"
                                             autoCapitalize="none"
                                             placeholderTextColor={"#333"}
@@ -139,7 +185,7 @@ const Register = () => {
                                         <TextInput
                                             className='text-black justify-start items-center h-[48px] rounded-md bg-black/10 px-3'
                                             value={city}
-                                            onChangeText={handleCityChange}
+                                            onChangeText={setCity}
                                             placeholder="Chicago"
                                             autoCapitalize="none"
                                             placeholderTextColor={"#333"}
@@ -156,7 +202,7 @@ const Register = () => {
                                 <TextInput
                                     className='text-black justify-start items-center h-[48px] rounded-md bg-black/10 px-3'
                                     value={address}
-                                    onChangeText={handleAddressChange}
+                                    onChangeText={setAddress}
                                     placeholder="1945, Voyager PKWY, NYC, US, 20113"
                                     placeholderTextColor="#333"
                                     autoCapitalize="none"
@@ -165,7 +211,9 @@ const Register = () => {
                         </KeyboardAvoidingView>
                     </TouchableWithoutFeedback>
                 </View>
-                <View className='mt-10'>
+              
+            </ScrollView>
+            <View className='mt-10'>
                     <LinearGradient
                         colors={['#01101D', '#0078BB']}
                         style={{ width: "300px", height: "0px", shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 120 }}
@@ -178,9 +226,15 @@ const Register = () => {
                         </TouchableOpacity>
                     </LinearGradient>
                 </View>
-            </ScrollView>
-        </SafeAreaView>
-    );
+        </SafeAreaView>}
+        </>
+    )
 };
+
+const styles = StyleSheet.create({
+    inputContainer: {
+        marginTop: 5
+    }
+});
 
 export default Register;

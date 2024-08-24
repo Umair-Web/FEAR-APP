@@ -68,12 +68,16 @@ import MoneyManagementFull from './src/pages/MoneyManagementFull';
 import FinancialFreedom from './src/pages/FinancialFreedom';
 import FinancialFreedomEdu from './src/pages/FinancialFreedomEdu';
 import BlockTaxPrep from './src/pages/BlockTaxPerp';
+import Retirement from './src/pages/Retirement';
+import Retirement2 from './src/pages/Retirement2';
+import ExperimentScreen from './src/pages/ExperimentScreen';
+import RetirementGoals from './src/pages/RetirementGoals';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='GetStarted' screenOptions={{
+      <Stack.Navigator initialRouteName='RetirementGoals' screenOptions={{
       headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -143,6 +147,12 @@ function App() {
         <Stack.Screen name="FinancialFreedom" component={FinancialFreedom} />
         <Stack.Screen name="FinancialFreedomEdu" component={FinancialFreedomEdu} />
         <Stack.Screen name="BlockTaxPrep" component={BlockTaxPrep} />
+        <Stack.Screen name="Retirement" component={Retirement} />
+        <Stack.Screen name="Retirement2" component={Retirement2} />
+        <Stack.Screen name="RetirementGoals" component={RetirementGoals} />
+
+        {/*  */}
+        <Stack.Screen name="ExperimentScreen" component={ExperimentScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

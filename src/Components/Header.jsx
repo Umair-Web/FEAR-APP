@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <View className=' mt-3 px-5 flex-row items-center justify-between  pb-3'>
             <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                <Image source={require("../assets/Arrow1.png")} />
+                <Image className="h-[16px] w-[18px]" source={require("../assets/back2.png")} />
             </TouchableOpacity>
             <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
             <Text className="text-[18px] font-normal text-black">David Walker</Text>

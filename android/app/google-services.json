@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "353527218071",
+    "project_id": "fear-app-805ad",
+    "storage_bucket": "fear-app-805ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353527218071:android:1c2521aedd9aa41f388ed2",
+        "android_client_info": {
+          "package_name": "com.fear"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_7VaC0VK0iJVT4can4DUcrCUGCmBAgME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

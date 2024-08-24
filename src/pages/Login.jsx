@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { SafeAreaView, ScrollView, TextInput, Button, Text, StyleSheet, View, Image, TouchableWithoutFeedback, Keyboard, Platform, ImageBackground, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import bgimage from "../assets/Rectangle1.png"
-import LinearGradient from 'react-native-linear-gradient'
-import { useNavigation } from '@react-navigation/native'
-const Login = () => {
+import React, { useState } from 'react';
+import { SafeAreaView, ScrollView, TextInput, Button, Text, StyleSheet, View, Image, TouchableWithoutFeedback, Keyboard, Platform, ImageBackground, TouchableOpacity, Alert, KeyboardAvoidingView } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 
+const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,117 +17,145 @@ const Login = () => {
     };
 
     const handleSubmit = () => {
-        alert(`Email: ${email}\nPassword: ${password}`);
+        auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(() => {
+                Alert.alert('Success', 'Logged in successfully!');
+                navigation.navigate("Dashboard");
+            })
+            .catch(error => {
+                if (error.code === 'auth/email-already-in-use') {
+                    Alert.alert('Error', 'That email address is already in use!');
+                } else if (error.code === 'auth/invalid-email') {
+                    Alert.alert('Error', 'That email address is invalid!');
+                } else if (error.code === 'auth/user-not-found') {
+                    Alert.alert('Error', 'No user found with this email!');
+                } else if (error.code === 'auth/wrong-password') {
+                    Alert.alert('Error', 'Incorrect password!');
+                } else {
+                    Alert.alert('Error', error.message);
+                }
+            });
     };
 
-    const navigation=useNavigation();
+    const navigation = useNavigation();
+
     return (
-        <SafeAreaView className='flex-1'>
-            <ImageBackground className='flex-1 items-start px-5 py-2 relative' source={require("../assets/Rectangle1.png")}>
-                <View className='absolute ml-5 mt-3'>
-                    <TouchableOpacity onPress={()=>(navigation.goBack())} className='py-2 px-4 rounded-2xl bg-black/10'>
+        <SafeAreaView style={styles.container}>
+            <ImageBackground style={styles.backgroundImage} source={require("../assets/Rectangle1.png")}>
+                <View style={styles.backButtonContainer}>
+                    <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
                 </View>
 
-
-                <View className="w-full items-center mb-5">
+                <View style={styles.logoContainer}>
                     <Image
-                        className='w-3/4 h-[300px]'
+                        style={styles.logo}
                         source={require('../assets/FearLogo.png')}
                     />
                 </View>
 
+                <KeyboardAvoidingView
+                    style={styles.avoidingView}
+                    behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                >
+                    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollViewContent}>
+                        <View style={styles.textContainer}>
+                            <Text style={styles.title}>Log In to F.E.A.R.</Text>
+                            <Text style={styles.subtitle}>Welcome back you have been missed!</Text>
+                        </View>
 
-                <ScrollView showsVerticalScrollIndicator={false} className='w-full'>
-                    <View className="items-start">
-                        <Text className='text-center font-semibold text-white text-[32px] leading-[41px]'>Log In to F.E.A.R.
-                        </Text>
-                        <Text className=' text-white text-[17px] font-light'>Welcome back you have been missed!</Text>
-                    </View>
-
-                    <View className='w-full mt-4'>
-                        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                            <View>
-                                <Text className='text-white font-normal text-[18px] mb-2'>Email</Text>
-                                <View className='w-full flex-row justify-start items-center h-[48px] rounded-md bg-[#5a6675] px-3'>
-                                    <Image source={require("../assets/mail.png")} />
-                                    <KeyboardAvoidingView
-                                        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+                        <View style={styles.inputContainer}>
+                            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                                <View>
+                                    <Text style={styles.label}>Email</Text>
+                                    <View style={styles.inputWrapper}>
+                                        <Image source={require("../assets/mail.png")} />
                                         <TextInput
-                                            className='ml-2 text-white font-normal'
+                                            style={styles.input}
                                             value={email}
                                             onChangeText={handleEmailChange}
                                             placeholder="Enter your email"
                                             keyboardType="email-address"
                                             autoCapitalize="none"
                                             placeholderTextColor={"#FFF"}
-
                                         />
-                                    </KeyboardAvoidingView>
+                                    </View>
                                 </View>
+                            </TouchableWithoutFeedback>
 
-
-                            </View>
-
-
-
-                        </TouchableWithoutFeedback>
-
-                        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                            <KeyboardAvoidingView
-                                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                                className='mt-2'
-                               >
-                                <Text className='text-white font-normal text-[18px] mb-2'>Password</Text>
-                                <View className='w-full flex-row justify-start items-center h-[48px] rounded-md bg-[#5a6675] px-3'>
-                                    <Image source={require("../assets/password.png")} />
-                                    <TextInput
-                                        className='ml-3 text-white font-normal'
-                                        value={password}
-                                        onChangeText={handlePasswordChange}
-                                        placeholder="Enter your password"
-                                        placeholderTextColor="#fff"  // Set the placeholder text color to white
-                                        secureTextEntry={true}
-                                        autoCapitalize="none"
-                                    />
+                            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                                <View style={styles.inputContainer}>
+                                    <Text style={styles.label}>Password</Text>
+                                    <View style={styles.inputWrapper}>
+                                        <Image source={require("../assets/password.png")} />
+                                        <TextInput
+                                            style={styles.input}
+                                            value={password}
+                                            onChangeText={handlePasswordChange}
+                                            placeholder="Enter your password"
+                                            placeholderTextColor="#fff"
+                                            secureTextEntry={true}
+                                            autoCapitalize="none"
+                                        />
+                                    </View>
+                                    <Text style={styles.forgotPassword}>Forgot password?</Text>
                                 </View>
-                                <Text className='text-white font-normal text-[12px] mb-4 mt-2'>Forgot password ?</Text>
-                            </KeyboardAvoidingView>
-
-
-
-                        </TouchableWithoutFeedback>
-                    </View>
-
-
-                    <View className='mb-10'>
-                        <LinearGradient
-                            colors={['#01101D', '#0078BB']}
-                            style={{ width: "300px", height: "0px",  shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 120, }}
-                            start={{ x: 0, y: 0 }}
-                            end={{ x: 1, y: 1 }}>
-                            <TouchableOpacity onPress={()=>(navigation.navigate("Dashboard"))} className='w-[300px] h-[50px] flex-row justify-center items-center'>
-                                <Text className='text-white text-[17px] font-normal'>Login</Text>
-                                <Image className='ml-2 h-[17px] w-[17px]' source={require("../assets/right.png")}></Image>
-                               
-                            </TouchableOpacity>
-                        </LinearGradient>
-                        <View className='mt-4  justify-center flex-row'>
-                        <Text className='text-white text-[14px] font-normal '>Not a member? </Text>
-                        <Text onPress={()=>(navigation.navigate("Register"))} className='text-[14px] font-semibold text-[#0089D6]'>Sign Up</Text>
+                            </TouchableWithoutFeedback>
                         </View>
-                        
-                    </View>
-                </ScrollView>
-            </ImageBackground>
 
+                      
+                    </ScrollView>
+                </KeyboardAvoidingView>
+                <View style={styles.buttonContainer}>
+                            <LinearGradient
+                                colors={['#01101D', '#0078BB']}
+                                style={styles.linearGradient}
+                                start={{ x: 0, y: 0 }}
+                                end={{ x: 1, y: 1 }}
+                            >
+                                <TouchableOpacity onPress={handleSubmit} style={styles.loginButton}>
+                                    <Text style={styles.loginButtonText}>Login</Text>
+                                    <Image style={styles.rightArrow} source={require("../assets/right.png")} />
+                                </TouchableOpacity>
+                            </LinearGradient>
+                            <View style={styles.signupContainer}>
+                                <Text style={styles.notAMember}>Not a member? </Text>
+                                <Text onPress={() => navigation.navigate("Register")} style={styles.signupText}>Sign Up</Text>
+                            </View>
+                        </View>
+            </ImageBackground>
         </SafeAreaView>
-    )
-}
+    );
+};
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    backgroundImage: {
+        flex: 1,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+    },
+    backButtonContainer: {
+        position: 'absolute',
+        top: 10,
+        left: 10,
+    },
+    backButton: {
+        padding: 10,
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        borderRadius: 20,
+    },
+    logoContainer: {
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    logo: {
+        width: '75%',
+        height: 300,
     },
     avoidingView: {
         flex: 1,
@@ -137,8 +165,21 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 16,
     },
+    textContainer: {
+        alignItems: 'center',
+    },
+    title: {
+        fontSize: 32,
+        color: 'white',
+        fontWeight: '600',
+        textAlign: 'center',
+    },
+    subtitle: {
+        color: 'white',
+        fontSize: 17,
+        fontWeight: '300',
+    },
     inputContainer: {
-        width: '100%',
         marginTop: 16,
     },
     label: {
@@ -147,9 +188,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     inputWrapper: {
-        width: '100%',
         flexDirection: 'row',
-        justifyContent: 'start',
         alignItems: 'center',
         height: 48,
         borderRadius: 8,
@@ -162,5 +201,55 @@ const styles = StyleSheet.create({
         color: '#FFF',
         fontSize: 16,
     },
+    forgotPassword: {
+        color: '#FFF',
+        fontSize: 12,
+        marginTop: 8,
+    },
+    buttonContainer: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
+    linearGradient: {
+        width: 300,
+        height: 50,
+        borderRadius: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: '#0078BB',
+        shadowOffset: { width: 10, height: 10 },
+        shadowOpacity: 0.5,
+        shadowRadius: 10,
+        elevation: 10,
+    },
+    loginButton: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    loginButtonText: {
+        color: '#FFF',
+        fontSize: 17,
+        fontWeight:"500"
+    },
+    rightArrow: {
+        marginLeft: 10,
+        width: 17,
+        height: 17,
+    },
+    signupContainer: {
+        flexDirection: 'row',
+        marginTop: 10,
+    },
+    notAMember: {
+        color: '#FFF',
+        fontSize: 14,
+    },
+    signupText: {
+        color: '#0089D6',
+        fontSize: 14,
+        fontWeight: '600',
+    },
 });
-export default Login
+
+export default Login;
