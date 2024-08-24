@@ -72,12 +72,17 @@ import Retirement from './src/pages/Retirement';
 import Retirement2 from './src/pages/Retirement2';
 import ExperimentScreen from './src/pages/ExperimentScreen';
 import RetirementGoals from './src/pages/RetirementGoals';
+import Investments from './src/pages/Investments';
+import Invest4 from './src/pages/Invest4';
+import SpendingCategory from './src/pages/SpendingCategory';
+import Investments2 from './src/pages/Investments2';
+import RetirementIncomePlanning from './src/pages/RetirementIncomePlanning';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='RetirementGoals' screenOptions={{
+      <Stack.Navigator initialRouteName='RetirementIncomePlanning' screenOptions={{
       headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -150,7 +155,14 @@ function App() {
         <Stack.Screen name="Retirement" component={Retirement} />
         <Stack.Screen name="Retirement2" component={Retirement2} />
         <Stack.Screen name="RetirementGoals" component={RetirementGoals} />
+        <Stack.Screen name="Investments" component={Investments} />
 
+        <Stack.Screen name="Invest4" component={Invest4} />
+        <Stack.Screen name="SpendingCategory" component={SpendingCategory} />
+        <Stack.Screen name="Investments2" component={Investments2} />
+        <Stack.Screen name="RetirementIncomePlanning" component={RetirementIncomePlanning} />
+
+         
         {/*  */}
         <Stack.Screen name="ExperimentScreen" component={ExperimentScreen} />
       </Stack.Navigator>

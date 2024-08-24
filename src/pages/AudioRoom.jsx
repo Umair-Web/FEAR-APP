@@ -22,23 +22,23 @@ const AudioRoom = () => {
                         <Text className='font-normal text-sm text-[#003655]'>What you want to do today</Text>
                     </View>
 
-                    <View className='flex-row justify-between mt-3 w-full gap-x-2'>
-                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-2 py-3'>
+                    <View className='flex-row justify-between mt-3 w-full gap-x-1'>
+                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-[3px] py-4'>
                             <View className='items-center gap-y-3'>
                                 <Image className='h-7 w-7' source={require("../assets/user.png")} />
-                                <Text className='font-semibold text-[9px] text-white'>Start a audio room</Text>
+                                <Text className='font-semibold text-[8px] text-white'>Start a WealthWave Room</Text>
                             </View>
                         </View>
-                        <View className='rounded-3xl bg-black w-[32%]  items-center justify-center px-2 py-3'>
+                        <View className='rounded-3xl bg-black  w-[32%] items-center justify-center px-[1px] py-4'>
                             <View className='items-center gap-y-3'>
                                 <Image className='h-7 w-7' source={require("../assets/schedule.png")} />
-                                <Text className='font-semibold text-[9px] text-white'>Schedule a audio room</Text>
+                                <Text className='font-semibold text-[7px] text-white'>Schedule a WealthWave Room</Text>
                             </View>
                         </View>
-                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-2 py-3'>
+                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-[3px] py-4'>
                             <View className='items-center gap-y-3'>
                                 <Image className='h-7 w-7' source={require("../assets/team.png")} />
-                                <Text className='font-semibold text-[9px] text-white'>Create a team</Text>
+                                <Text className='font-semibold text-[8px] text-white'>Messenger</Text>
                             </View>
                         </View>
 
@@ -50,7 +50,7 @@ const AudioRoom = () => {
                     <View className='mt-6'>
                         <View className='flex-row gap-x-2'>
                             <Text className='font-normal text-2xl text-black'>Join</Text>
-                            <Text className='font-bold text-2xl text-black'>Audioroom</Text>
+                            <Text className='font-bold text-2xl text-black'>WealthWave</Text>
                         </View>
                         <View className='rounded-3xl bg-black/70 px-2 py-4 mt-3 relative'>
                             <View className='flex-row gap-x-3'>
@@ -64,7 +64,7 @@ const AudioRoom = () => {
                                     </View>
                                 </View>
                                 <View>
-                                    <Text className='font-semibold text-xl text-white'>Audioroom 1</Text>
+                                    <Text className='font-semibold text-xl text-white'>WealthWave 1</Text>
                                 </View>
 
                             </View>
@@ -92,7 +92,7 @@ const AudioRoom = () => {
 
                             <View className='flex-row gap-x-2 mt-9'>
 
-                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join Audioroom</Text>
+                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join WealthWave</Text>
 
                                 </View>
 
@@ -126,7 +126,7 @@ const AudioRoom = () => {
                                     </View>
                                 </View>
                                 <View>
-                                    <Text className='font-semibold text-xl text-white'>Audioroom 1</Text>
+                                    <Text className='font-semibold text-xl text-white'>WealthWave 2</Text>
                                 </View>
 
                             </View>
@@ -154,7 +154,7 @@ const AudioRoom = () => {
 
                             <View className='flex-row gap-x-2 mt-9'>
 
-                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join Audioroom</Text>
+                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join WealthWave</Text>
 
                                 </View>
 

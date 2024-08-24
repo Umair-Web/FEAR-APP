@@ -56,7 +56,7 @@ const Dashboard = () => {
                         start={{ x: 0, y: 0 }}  
                         end={{ x: 0, y: 1 }}>  
                         <Image source={require("../assets/FearLogoVerySmall.png")}/>
-                        <Text className='text-white text-[14px] font-normal'>Credit Portal</Text>
+                        <Text className='text-white text-[14px] font-normal'>ProsperityCredit</Text>
                     </LinearGradient>
                     <LinearGradient
                         colors={['#01101D', '#0078BB']}
@@ -77,9 +77,8 @@ const Dashboard = () => {
                         start={{ x: 0, y: 0 }}  
                         end={{ x: 0, y: 1 }}>  
                         <Image source={require("../assets/FearLogoVerySmall.png")}/>
-                        <Text className='text-white text-[14px] font-normal text-center'>Trading and </Text>
-                        <Text className='text-white text-[14px] font-normal text-center'>Investment</Text>
-                        <Text className='text-white text-[14px] font-normal text-center'>Portal</Text>
+                        <Text className='text-white text-[14px] font-normal text-center'>WealthTrades</Text>
+                       
                     </LinearGradient>
                     </View>
                     <View className='flex-row gap-x-4 mt-1'>
@@ -102,9 +101,8 @@ const Dashboard = () => {
                         start={{ x: 0, y: 0 }}  
                         end={{ x: 0, y: 1 }}>  
                         <Image source={require("../assets/FearLogoVerySmall.png")}/>
-                        <Text className='text-white text-[14px] font-normal text-center'>Money </Text>
-                        <Text className='text-white text-[14px] font-normal text-center'>Management</Text>
-                        <Text className='text-white text-[14px] font-normal text-center'>Portal</Text>
+                        <Text className='text-white text-[14px] font-normal text-center'>WealthWise Manager</Text>
+                      
                     </LinearGradient>
                     <LinearGradient
                         colors={['#01101D', '#0078BB']}
@@ -125,7 +123,7 @@ const Dashboard = () => {
                         start={{ x: 0, y: 0 }}  
                         end={{ x: 0, y: 1 }}>  
                         <Image source={require("../assets/FearLogoVerySmall.png")}/>
-                        <Text className='text-white text-[14px] font-normal text-center'>Tax Portal</Text>
+                        <Text className='text-white text-[14px] font-normal text-center'>TaxWise</Text>
                         
                     </LinearGradient>
                     </View>
@@ -170,7 +168,7 @@ const Dashboard = () => {
                         start={{ x: 0, y: 0 }}  
                         end={{ x: 0, y: 1 }}>  
                         <Image className='w-[50px] h-[45px] mb-3' source={require("../assets/globe.png")}/>
-                        <Text className='text-white text-[14px] font-normal text-center'>Webinars</Text>
+                        <Text className='text-white text-[14px] font-normal text-center'>Knowledge Stream</Text>
                         
                     </LinearGradient>
                     </View>
@@ -194,7 +192,7 @@ const Dashboard = () => {
                         start={{ x: 0, y: 0 }}  
                         end={{ x: 0, y: 1 }}>  
                         <Image className='w-[50px] h-[45px] mb-3' source={require("../assets/chat.png")}/>
-                        <Text className='text-white text-[14px] font-normal text-center'>Community</Text>
+                        <Text className='text-white text-[14px] font-normal text-center'>WealthWave Portal</Text>
                     </LinearGradient>
                     <LinearGradient
                         colors={['#01101D', '#0078BB']}
@@ -215,7 +213,7 @@ const Dashboard = () => {
                         start={{ x: 0, y: 0 }}  
                         end={{ x: 0, y: 1 }}>  
                          <Image className='w-[50px] h-[45px] mb-3' source={require("../assets/books.png")}/>
-                         <Text className='text-white text-[14px] font-normal text-center'>Book store</Text>
+                         <Text className='text-white text-[14px] font-normal text-center'>Money Mind Books</Text>
                     </LinearGradient>
                     </View>
                    

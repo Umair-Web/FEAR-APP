@@ -22,23 +22,23 @@ const ChatRoom = () => {
                         <Text className='font-normal text-sm text-[#003655]'>What you want to do today</Text>
                     </View>
 
-                    <View className='flex-row justify-between mt-3 w-full gap-x-2'>
-                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-2 py-3'>
+                    <View className='flex-row justify-between mt-3 w-full gap-x-1'>
+                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-[3px] py-4'>
                             <View className='items-center gap-y-3'>
                                 <Image className='h-7 w-7' source={require("../assets/user.png")} />
-                                <Text className='font-semibold text-[9px] text-white'>Start a chat room</Text>
+                                <Text className='font-semibold text-[8px] text-white'>Start a Message Room</Text>
                             </View>
                         </View>
-                        <View className='rounded-3xl bg-black w-[32%]  items-center justify-center px-2 py-3'>
+                        <View className='rounded-3xl bg-black  w-[32%] items-center justify-center px-[2px] py-4'>
                             <View className='items-center gap-y-3'>
                                 <Image className='h-7 w-7' source={require("../assets/schedule.png")} />
-                                <Text className='font-semibold text-[9px] text-white'>Schedule a chat room</Text>
+                                <Text className='font-semibold text-[8px] text-white'>Schedule a Message Room</Text>
                             </View>
                         </View>
-                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-2 py-3'>
+                        <View className='rounded-3xl bg-[#165BAA] w-[32%]  items-center justify-center px-[3px] py-4'>
                             <View className='items-center gap-y-3'>
                                 <Image className='h-7 w-7' source={require("../assets/team.png")} />
-                                <Text className='font-semibold text-[9px] text-white'>Create a team</Text>
+                                <Text className='font-semibold text-[8px] text-white'>Create a Team</Text>
                             </View>
                         </View>
 
@@ -50,7 +50,7 @@ const ChatRoom = () => {
                     <View className='mt-6'>
                         <View className='flex-row gap-x-2'>
                             <Text className='font-normal text-2xl text-black'>Join</Text>
-                            <Text className='font-bold text-2xl text-black'>Chatroom</Text>
+                            <Text className='font-bold text-2xl text-black'>Messenger</Text>
                         </View>
                         <View className='rounded-3xl bg-black/70 px-2 py-4 mt-3 relative'>
                             <View className='flex-row gap-x-3'>
@@ -64,7 +64,7 @@ const ChatRoom = () => {
                                     </View>
                                 </View>
                                 <View>
-                                    <Text className='font-semibold text-xl text-white'>Chatroom 1</Text>
+                                    <Text className='font-semibold text-xl text-white'>Message Room 1</Text>
                                 </View>
 
                             </View>
@@ -92,7 +92,7 @@ const ChatRoom = () => {
 
                             <View className='flex-row gap-x-2 mt-9'>
 
-                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join Chatroom</Text>
+                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join Messenger</Text>
 
                                 </View>
 
@@ -126,7 +126,7 @@ const ChatRoom = () => {
                                     </View>
                                 </View>
                                 <View>
-                                    <Text className='font-semibold text-xl text-white'>Chatroom 1</Text>
+                                    <Text className='font-semibold text-xl text-white'>Message Room 2</Text>
                                 </View>
 
                             </View>
@@ -154,7 +154,7 @@ const ChatRoom = () => {
 
                             <View className='flex-row gap-x-2 mt-9'>
 
-                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join Chatroom</Text>
+                                <View className='rounded-2xl bg-[#165BAA] w-[40%] items-center justify-center py-2 '><Text className='font-semibold text-[13px] text-white'>Join Messenger</Text>
 
                                 </View>
 

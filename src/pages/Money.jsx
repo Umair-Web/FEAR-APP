@@ -47,7 +47,7 @@ const Money = () => {
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <Text className='font-normal text-black text-lg'>Welcome back David!!</Text>
                     <Text className='font-bold text-black text-[26px]'>
-                        Money Management portal
+                        Whealth Wise Manager.
                     </Text>
                     <Image className='w-full h-20 rounded-3xl mt-2' source={require("../assets/sample-image2.jpg")} />
                     <View className='bg-white border border-[#004770] p-2  mt-2 rounded-2xl items-center justify-center'>
