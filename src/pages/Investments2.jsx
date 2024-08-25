@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInput, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Dimensions } from 'react-native';
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
@@ -54,35 +54,35 @@ const Investments2 = () => {
 
     return (
         <SafeAreaView className='bg-white flex-1'>
-         <Header/>
-         <Text className='font-bold text-base text-[#003655] px-6'>Investments</Text>
-            <View className='px-5' style={{height:screenHeight*0.8}} >
-                <ScrollView  showsVerticalScrollIndicator={false}>
-                <View className="mt-2 flex-row items-center  rounded-lg">
-                    <TouchableOpacity
-                        onPress={() => handleSelect('Holdings')}
-                        className={`px-4 py-2  w-1/3 ${selected === 'Holdings' ? 'border-b-2 border-blue-600 ' : ''
-                            }`}
-                    >
-                        <Text className={`text-sm font-medium text-center  ${selected === 'Holdings' ? "text-blue-600" : "text-black"}`} >Holdings</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => handleSelect('Balance')}
-                        className={`px-4 py-2  w-1/3 ${selected === 'Balance' ? 'border-b-2 border-blue-600 ' : ''
-                            }`}
-                    >
-                        <Text className={`text-sm font-medium text-center  ${selected === 'Balance' ? "text-blue-600" : "text-black"}`} >Balance</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => handleSelect('Expense')}
-                        className={`px-4 py-2  w-1/3 ${selected === 'Expense' ? 'border-b-2 border-blue-600 ' : ''
-                            }`}
-                    >
-                        <Text className={`text-sm font-medium text-center  ${selected === 'Expense' ? "text-blue-600" : "text-black"}`} >Expense</Text>
-                    </TouchableOpacity>
-                </View>
+            <Header />
+            <Text className='font-bold text-base text-[#003655] px-6'>Investments</Text>
+            <View className='px-5' style={{ height: screenHeight * 0.8 }} >
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View className="mt-2 flex-row items-center  rounded-lg">
+                        <TouchableOpacity
+                            onPress={() => handleSelect('Holdings')}
+                            className={`px-4 py-2  w-1/3 ${selected === 'Holdings' ? 'border-b-2 border-blue-600 ' : ''
+                                }`}
+                        >
+                            <Text className={`text-sm font-medium text-center  ${selected === 'Holdings' ? "text-blue-600" : "text-black"}`} >Holdings</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => handleSelect('Balance')}
+                            className={`px-4 py-2  w-1/3 ${selected === 'Balance' ? 'border-b-2 border-blue-600 ' : ''
+                                }`}
+                        >
+                            <Text className={`text-sm font-medium text-center  ${selected === 'Balance' ? "text-blue-600" : "text-black"}`} >Balance</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => handleSelect('Expense')}
+                            className={`px-4 py-2  w-1/3 ${selected === 'Expense' ? 'border-b-2 border-blue-600 ' : ''
+                                }`}
+                        >
+                            <Text className={`text-sm font-medium text-center  ${selected === 'Expense' ? "text-blue-600" : "text-black"}`} >Expense</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                <View className=' bg-[#004B90]/20 p-3 border-b-2 border-white rounded-t-xl mt-4'>
+                    <View className=' bg-[#004B90]/20 p-3 border-b-2 border-white rounded-t-xl mt-4'>
                         <View className='flex-row justify-between items-center'>
                             <Text className='font-semibold text-[#00325F] text-base'>History Tab</Text>
                             <Image className='w-5 h-5' source={require("../assets/settings/about-us.png")} />
@@ -97,7 +97,7 @@ const Investments2 = () => {
                                 data={lineData}
                                 verticalLinesColor="#fff" // Set the color of vertical lines
                                 rulesColor={"#fff"}
-    
+
                                 data2={lineData2}
                                 data3={lineData3}
                                 height={250}
@@ -125,7 +125,7 @@ const Investments2 = () => {
                                 yAxisThickness={0}
                                 yAxisLabelCount={5}
                                 maxValue={100}
-                     
+
 
                             />
                         </View>
@@ -167,13 +167,13 @@ const Investments2 = () => {
 
                             <Text className='font-medium text-xs w-[20%] text-center text-white'>Amount</Text>
 
-                            
+
                         </View>
 
                         <View>
                             {data.map((item) => (
                                 <View key={item.id} className="flex-row justify-between py-2">
-                                   
+
                                     <Text className="font-normal w-[20%] text-xs text-center text-white">{item.category}</Text>
                                     <Text className="font-normal text-xs w-[35%] text-center text-white">{item.amount}</Text>
                                     <Text

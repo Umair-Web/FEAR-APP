@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React,{useState} from 'react';
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInput, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Dimensions } from 'react-native';
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
@@ -7,118 +7,96 @@ import Header from '../Components/Header';
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
 
-const RetirementIncomePlanning = () => {
-    const [principal, setPrinciple] = useState('');
-    const [annadd, SetAnnAdd] = useState('');
-    const [monadd, SetMonAdd] = useState('');
-    const [eachperiod, SetEachPeriod] = useState('');
-    const [anngrowth, SetAnngrowth] = useState('')
-    const [after, SetAfter] = useState('')
-
-
-    const data = [
-        { year: '1', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '2', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '3', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '4', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '5', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '6', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '7', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '8', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-        { year: '9', addition: '$30,000.00', amount: '$1,800.00', change: '$31,800.00' },
-      ];
+const SocialSecurityEstimator = () => {
+    const [dob,setDob ] = useState('');
+    const [currSal,setCurrSal ] = useState('');
+    const [martlStts,setMartlStts ] = useState('');
+    const [earnhis,setEarnhis ] = useState('');
+    const [retireAge,setRetireAge ] = useState('')
 
     return (
         <SafeAreaView className='bg-white flex-1'>
-            <Header />
-            <View className='px-5' style={{ height: screenHeight * 0.8 }} >
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <Text className='font-bold text-base text-[#00325F]'>Retirement Income planning</Text>
-
-                    <View className='bg-black/25 rounded-2xl mt-4'>
+         <Header/>
+            <View className='px-5' style={{height:screenHeight*0.8}} >
+                <ScrollView  showsVerticalScrollIndicator={false}>
+                <View className='bg-black/25 rounded-2xl mt-4'>
                         <View>
-                            <Text className='text-[#00325F] text-sm text-center font-bold mt-2'>Annuity Calculators</Text>
+                            <Text className='text-[#00325F] text-sm text-center font-bold mt-2'>Social Security Calculator</Text>
+
+                            <Text className='text-black text-xs font-medium mt-2 p-2'>This calculator guides you in making smart choices that can
+                            help you maximize security benefits</Text>
+
+                            <Text className='text-[#00325F] text-sm text-start p-2 font-bold'>Enter your details</Text>
+
                             <View className='p-2'>
                                 <View className='flex-row items-center my-1'>
-                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Starting principal</Text>
+                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Date of Birth</Text>
                                     <View className='w-[45%] ml-2 bg-white h-[24px] border border-black/50 text-black' >
                                         <TextInput
                                             className='text-[10px] text-black p-1 font-normal'
                                             placeholder="Type here"
                                             placeholderTextColor="#A5A5A5"
-                                            value={principal}
-                                            onChangeText={setPrinciple}
+                                            value={dob}
+                                            onChangeText={setDob}
                                         />
                                     </View>
                                 </View>
 
                                 <View className='flex-row items-center my-1'>
-                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Annual addition</Text>
+                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Current Salary</Text>
                                     <View className='w-[45%] ml-2 bg-white h-[24px] border border-black/50 text-black' >
                                         <TextInput
                                             className='text-[10px] text-black p-1 font-normal'
                                             placeholder="Type here"
                                             placeholderTextColor="#A5A5A5"
-                                            value={annadd}
-                                            onChangeText={SetAnnAdd}
+                                            value={currSal}
+                                            onChangeText={setCurrSal}
                                         />
                                     </View>
                                 </View>
 
                                 <View className='flex-row items-center my-1'>
-                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Monthly addition</Text>
+                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Martial Status</Text>
                                     <View className='w-[45%] ml-2 bg-white h-[24px] border border-black/50 text-black' >
                                         <TextInput
                                             className='text-[10px] text-black p-1 font-normal'
                                             placeholder="Type here"
                                             placeholderTextColor="#A5A5A5"
-                                            value={monadd}
-                                            onChangeText={SetMonAdd}
+                                            value={martlStts}
+                                            onChangeText={setMartlStts}
                                         />
                                     </View>
                                 </View>
 
                                 <View className='flex-row items-center my-1'>
-                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Add at each period</Text>
+                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Full Earnings History</Text>
                                     <View className='w-[45%] ml-2 bg-white h-[24px] border border-black/50 text-black' >
                                         <TextInput
                                             className='text-[10px] text-black p-1 font-normal'
                                             placeholder="Type here"
                                             placeholderTextColor="#A5A5A5"
-                                            value={eachperiod}
-                                            onChangeText={SetEachPeriod}
-                                        />
-                                    </View>
-
-                                </View>
-
-                                <View className='flex-row items-center my-1'>
-                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Annual growth rate</Text>
-                                    <View className='w-[45%] ml-2 bg-white h-[24px] border border-black/50 text-black' >
-                                        <TextInput
-                                            className='text-[10px] text-black p-1 font-normal'
-                                            placeholder="Type here"
-                                            placeholderTextColor="#A5A5A5"
-                                            value={anngrowth}
-                                            onChangeText={SetAnngrowth}
+                                            value={earnhis}
+                                            onChangeText={setEarnhis}
                                         />
                                     </View>
 
                                 </View>
 
                                 <View className='flex-row items-center my-1'>
-                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>After</Text>
+                                    <Text className='font-medium text-[#003655] text-xs w-[40%]'>Anticipated Retirement Age</Text>
                                     <View className='w-[45%] ml-2 bg-white h-[24px] border border-black/50 text-black' >
                                         <TextInput
                                             className='text-[10px] text-black p-1 font-normal'
                                             placeholder="Type here"
                                             placeholderTextColor="#A5A5A5"
-                                            value={after}
-                                            onChangeText={SetAfter}
+                                            value={retireAge}
+                                            onChangeText={setRetireAge}
                                         />
                                     </View>
 
                                 </View>
+
+                        
 
 
                                 <View className='flex-row justify-center gap-x-3 items-center mb-4 mt-3'>
@@ -260,35 +238,6 @@ const RetirementIncomePlanning = () => {
 
                         </View>
                     </View>
-
-                    <Text className='font-bold text-base text-[#00325F] mt-2'>Accumulation Schedule</Text>
-
-                    <View className=' mt-2'>
-                        <View className={` flex-row justify-between  bg-[#003655]`}>
-                            <Text className='font-bold border-r border-white text-[10px] w-[25%] text-center text-white p-1'>Year</Text>
-
-                            <Text className='font-bold border-r border-white text-[10px] w-[25%] text-center text-white p-1'>Addition</Text>
-
-                            <Text className='font-bold border-r border-white text-[10px] w-[25%] text-center text-white p-1'>Return</Text>
-
-                            <Text className='font-bold  text-[10px] w-[25%] text-center text-white p-1'>Ending balance</Text>
-                        </View>
-
-                        <View className='bg-black/25'>
-                            {data.map((item) => (
-                                <View key={item.year} className="flex-row justify-between">
-                                    <Text className="font-normal border-r border-black  text-black text-[11px] p-2 w-[25%] text-center">{item.year}</Text>
-                                    <Text className="font-normal border-r border-black  text-[#003655] text-[11px] p-2 w-[25%] text-center">{item.addition}</Text>
-                                    <Text className="font-normal border-r border-black  text-[#003655]  text-[11px] p-2 w-[25%] text-center">{item.amount}</Text>
-                                    <Text
-                                        className={`font-normal  text-[11px] w-[25%] p-2 text-center text-[#003655] `}
-                                    >
-                                        {item.change}
-                                    </Text>
-                                </View>
-                            ))}
-                        </View>
-                    </View>
                 </ScrollView>
             </View>
 
@@ -298,4 +247,4 @@ const RetirementIncomePlanning = () => {
     );
 };
 
-export default RetirementIncomePlanning;
+export default SocialSecurityEstimator;

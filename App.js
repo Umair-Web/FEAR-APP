@@ -77,12 +77,18 @@ import Invest4 from './src/pages/Invest4';
 import SpendingCategory from './src/pages/SpendingCategory';
 import Investments2 from './src/pages/Investments2';
 import RetirementIncomePlanning from './src/pages/RetirementIncomePlanning';
+import SocialSecurityEstimator from './src/pages/SocialSecurityEstimator';
+import TaxChart from './src/pages/TaxChart';
+import TaxRothGraphs from './src/pages/TaxRothGraphs';
+import TaxEfficientWithdrawal from './src/pages/TaxEfficientWithdrawal';
+import ExpenseTrackingText from './src/pages/ExpenseTrackingText';
+import RetiremnentBudgetPlanner from './src/pages/RetirementBudgetPlanner';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='RetirementIncomePlanning' screenOptions={{
+      <Stack.Navigator initialRouteName='RetiremnentBudgetPlanner' screenOptions={{
       headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -161,6 +167,13 @@ function App() {
         <Stack.Screen name="SpendingCategory" component={SpendingCategory} />
         <Stack.Screen name="Investments2" component={Investments2} />
         <Stack.Screen name="RetirementIncomePlanning" component={RetirementIncomePlanning} />
+        <Stack.Screen name="SocialSecurityEstimator" component={SocialSecurityEstimator} />
+        <Stack.Screen name="TaxChart" component={TaxChart} />
+        <Stack.Screen name="TaxRothGraphs" component={TaxRothGraphs} />
+        <Stack.Screen name="TaxEfficientWithdrawal" component={TaxEfficientWithdrawal} />
+        <Stack.Screen name="ExpenseTrackingText" component={ExpenseTrackingText} />
+        <Stack.Screen name="RetiremnentBudgetPlanner" component={RetiremnentBudgetPlanner} />
+
 
          
         {/*  */}
