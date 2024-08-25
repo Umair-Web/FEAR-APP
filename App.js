@@ -83,12 +83,15 @@ import TaxRothGraphs from './src/pages/TaxRothGraphs';
 import TaxEfficientWithdrawal from './src/pages/TaxEfficientWithdrawal';
 import ExpenseTrackingText from './src/pages/ExpenseTrackingText';
 import RetiremnentBudgetPlanner from './src/pages/RetirementBudgetPlanner';
+import InsurancePolicyManagement from './src/pages/InsurancePolicyManagement';
+import PremiumSummary from './src/pages/PremiumSummary';
+import PaymentReminder from './src/pages/PaymentReminder';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='RetiremnentBudgetPlanner' screenOptions={{
+      <Stack.Navigator initialRouteName='PaymentReminder' screenOptions={{
       headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -173,6 +176,12 @@ function App() {
         <Stack.Screen name="TaxEfficientWithdrawal" component={TaxEfficientWithdrawal} />
         <Stack.Screen name="ExpenseTrackingText" component={ExpenseTrackingText} />
         <Stack.Screen name="RetiremnentBudgetPlanner" component={RetiremnentBudgetPlanner} />
+        <Stack.Screen name="InsurancePolicyManagement" component={InsurancePolicyManagement} />
+        <Stack.Screen name="PremiumSummary" component={PremiumSummary} />
+        <Stack.Screen name="PaymentReminder" component={PaymentReminder} />
+
+        
+
 
 
          

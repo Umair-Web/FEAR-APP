@@ -22,6 +22,19 @@ const BlockTaxPrep = () => {
         { id: 12, title: 'Tax Efficient Withdrawal Strategies' },
         { id: 13, title: 'Expense Tracking' },
         { id: 14, title: 'Account Type Management' },
+        { id: 15, title: 'Insurance policy management' },
+        { id: 16, title: 'Premium tracking and payments' },
+        { id: 17, title: 'Payment reminder' },
+        { id: 18, title: 'Monthly expenses' },
+        { id: 19, title: 'Insurance agents' },
+        { id: 20, title: 'Property listing' },
+        { id: 21, title: 'Home finance' },
+        { id: 22, title: 'Property index' },
+        { id: 23, title: 'Property market trends' },
+        { id: 24, title: 'ROi calculator' },
+        { id: 25, title: 'Compare mortgage rates' },
+        { id: 26, title: 'Tax deduction guide' },
+
     ];
     return (
         <SafeAreaView className='bg-white flex-1'>
