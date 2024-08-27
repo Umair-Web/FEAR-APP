@@ -93,12 +93,14 @@ import InsuranceAgent2 from './src/pages/InsuranceAgent2';
 import RealState from './src/pages/RealState';
 import RealState2 from './src/pages/RealState2';
 import MarketAnalysis from './src/pages/MarketAnalysis';
+import PropertyPriceIndes from './src/pages/PropertyPriceIndes';
+import ROICalculator from './src/pages/ROICalculator';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='MarketAnalysis' screenOptions={{
+      <Stack.Navigator initialRouteName='ROICalculator' screenOptions={{
       headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -193,6 +195,10 @@ function App() {
         <Stack.Screen name="RealState" component={RealState} />
         <Stack.Screen name="RealState2" component={RealState2} />
         <Stack.Screen name="MarketAnalysis" component={MarketAnalysis} />
+        <Stack.Screen name="PropertyPriceIndes" component={PropertyPriceIndes} />
+        <Stack.Screen name="ROICalculator" component={ROICalculator} />
+        
+
         
 
 
