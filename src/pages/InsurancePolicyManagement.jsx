@@ -57,23 +57,23 @@ const InsurancePolicyManagement = () => {
                     <Text className='font-medium text-xs text-[#374151] my-1'>• Type: Home</Text>
 
                     <View className=' items-center mt-3'>
-                    <LinearGradient
-                        colors={['#01101D', '#0078BB']}
-                        style={{ width: "300px", height: "0px", shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 10 }}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
-                    >
-                        <TouchableOpacity className='w-[200px] h-[40px] flex-row justify-center items-center' >
-                            <Text className='text-white text-[17px] font-normal'>Contact Rich</Text>
-                        </TouchableOpacity>
-                    </LinearGradient>
-                </View>
+                        <LinearGradient
+                            colors={['#01101D', '#0078BB']}
+                            style={{ width: "300px", height: "0px", shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 10 }}
+                            start={{ x: 0, y: 0 }}
+                            end={{ x: 1, y: 1 }}
+                        >
+                            <TouchableOpacity className='w-[200px] h-[40px] flex-row justify-center items-center' >
+                                <Text className='text-white text-[17px] font-normal'>Contact Rich</Text>
+                            </TouchableOpacity>
+                        </LinearGradient>
+                    </View>
 
 
 
                 </ScrollView>
 
-               
+
             </View>
 
             <BgImage />

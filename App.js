@@ -86,12 +86,19 @@ import RetiremnentBudgetPlanner from './src/pages/RetirementBudgetPlanner';
 import InsurancePolicyManagement from './src/pages/InsurancePolicyManagement';
 import PremiumSummary from './src/pages/PremiumSummary';
 import PaymentReminder from './src/pages/PaymentReminder';
+import LifeInsuranceCalculator from './src/pages/LifeInsuranceCalculator';
+import Insurance from './src/pages/Insurance';
+import InsuranceAgent1 from './src/pages/InsuranceAgent1';
+import InsuranceAgent2 from './src/pages/InsuranceAgent2';
+import RealState from './src/pages/RealState';
+import RealState2 from './src/pages/RealState2';
+import MarketAnalysis from './src/pages/MarketAnalysis';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='PaymentReminder' screenOptions={{
+      <Stack.Navigator initialRouteName='MarketAnalysis' screenOptions={{
       headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -179,7 +186,13 @@ function App() {
         <Stack.Screen name="InsurancePolicyManagement" component={InsurancePolicyManagement} />
         <Stack.Screen name="PremiumSummary" component={PremiumSummary} />
         <Stack.Screen name="PaymentReminder" component={PaymentReminder} />
-
+        <Stack.Screen name="LifeInsuranceCalculator" component={LifeInsuranceCalculator} />
+        <Stack.Screen name="Insurance" component={Insurance} />
+        <Stack.Screen name="InsuranceAgent1" component={InsuranceAgent1} />
+        <Stack.Screen name="InsuranceAgent2" component={InsuranceAgent2} />
+        <Stack.Screen name="RealState" component={RealState} />
+        <Stack.Screen name="RealState2" component={RealState2} />
+        <Stack.Screen name="MarketAnalysis" component={MarketAnalysis} />
         
 
 
