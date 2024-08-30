@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, ScrollView,TouchableOpacity, Image, processCo
 import MenuBar from '../Components/MenuBar';
 import { CandleStickChart } from 'react-native-charts-wrapper';
 import BgImage from '../Components/BgImage';
+import Header from '../Components/Header';
 
 const Position = () => {
     const [data, setData] = useState({
@@ -57,17 +58,9 @@ const Position = () => {
 
     return (
         <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
+            <Header/>
             <ScrollView>
-                <View style={{ paddingHorizontal: 20, marginTop: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <TouchableOpacity style={{ paddingVertical: 10, paddingHorizontal: 20, borderRadius: 20, backgroundColor: 'rgba(0,0,0,0.1)' }}>
-                        <Image source={require("../assets/Arrow1.png")} />
-                    </TouchableOpacity>
-                    <Image style={{ width: 43, height: 43, borderRadius: 21.5 }} source={require("../assets/download.jpeg")} />
-                    <Text style={{ fontSize: 18, fontWeight: 'normal', color: 'black' }}>David Walker</Text>
-                    <Image style={{ width: 20, height: 20 }} source={require("../assets/bell-black.png")} />
-                    <Image style={{ width: 18, height: 18 }} source={require("../assets/question-black.png")} />
-                    <Image style={{ width: 18, height: 18 }} source={require("../assets/settings-black.png")} />
-                </View>
+                
 
                 <Text style={{ fontSize: 20, fontWeight: '600', color: 'black', paddingHorizontal: 32, marginTop: 10 }}>NIKE</Text>
                 <Text style={{ fontSize: 30, fontWeight: '600', color: 'black', paddingHorizontal: 32 }}>$600.7</Text>

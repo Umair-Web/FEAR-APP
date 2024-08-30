@@ -3,7 +3,12 @@ import { View, Text, Animated, StyleSheet, Dimensions, SafeAreaView, ScrollView,
 import LinearGradient from 'react-native-linear-gradient';
 import FastImage from 'react-native-fast-image';
 import MenuBar from '../Components/MenuBar';
+import { useNavigation } from '@react-navigation/native';
+
 const Hub = () => {
+    const navigation = useNavigation();
+
+
     const translateX = useRef(new Animated.Value(-Dimensions.get('window').width)).current;
 
     useEffect(() => {
@@ -26,14 +31,15 @@ const Hub = () => {
             <View>
                 <View className='px-5'>
                     <View className=' mt-8 flex-row items-center justify-between'>
-                        <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                            <Image source={require("../assets/Arrow1.png")} />
+                        <TouchableOpacity onPress={() => (navigation.goBack())}
+                            className='py-2 px-4 rounded-2xl bg-black/10'>
+                            <Image className="h-[16px] w-[18px]" source={require("../assets/back2.png")} />
                         </TouchableOpacity>
                         <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
                         <Text className="text-[18px] font-normal text-black">David Walker</Text>
-                        <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
-                        <Image  className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
-                        <Image  className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
+                        <TouchableOpacity activeOpacity={1} delayPressIn={0.1} onPress={() => (navigation.navigate("Notifications"))}><Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} /></TouchableOpacity>
+                        <TouchableOpacity activeOpacity={1} delayPressIn={0.1} onPress={() => (navigation.navigate("Help"))}><Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} /></TouchableOpacity>
+                        <TouchableOpacity activeOpacity={1} delayPressIn={0.1} onPress={() => (navigation.navigate("Settings"))}><Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} /></TouchableOpacity>
                     </View>
                     <Text className='text-sm text-black font-normal mt-2'>Your all in one hub for access to Trading and Investment, Real Time Info, and Stock News.
                     </Text>
@@ -63,12 +69,12 @@ const Hub = () => {
                                     start={{ x: 0, y: 0 }}
                                     end={{ x: 1, y: 1 }}
                                 >
-                                    <TouchableOpacity className='items-center justify-center p-3' >
+                                    <TouchableOpacity delayPressIn={1} onPress={() => (navigation.navigate("Discover"))} className='items-center justify-center p-3' >
                                         <Text className='text-sm font-bold text-white'>Discover</Text>
                                     </TouchableOpacity>
                                 </LinearGradient>
                             </View>
-                            <TouchableOpacity className='flex-row items-center  w-2/5 justify-center bg-white border-[#003655] border-[1px] rounded-3xl p-3'>
+                            <TouchableOpacity delayPressIn={1} onPress={() => (navigation.navigate("Markets"))} className='flex-row items-center  w-2/5 justify-center bg-white border-[#003655] border-[1px] rounded-3xl p-3'>
 
                                 <Text className='text-sm font-bold text-[#003655]'>Markets</Text>
 
@@ -104,48 +110,48 @@ const Hub = () => {
             </View>
             <ScrollView className='mt-2 mb-10'>
 
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                <TouchableOpacity onPress={()=>(navigation.navigate("Markets2"))} className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
+                    <Text className='font-normal text-black text-base ml-3'>Balances</Text>
+                </TouchableOpacity>
+
+
+
+                <TouchableOpacity onPress={()=>(navigation.navigate("Position"))} className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
+                    <Text className='font-normal text-black text-base ml-3'>Positions</Text>
+                </TouchableOpacity>
+
+
+
+
+                <TouchableOpacity onPress={()=>(navigation.navigate("TradingandInvesting"))} className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
+                    <Text className='font-normal text-black text-base ml-3'>Education</Text>
+                </TouchableOpacity>
+
+
+                <TouchableOpacity onPress={()=>(navigation.navigate("TradingandInvestingEdu2"))} className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
+                    <Text className='font-normal text-black text-base ml-3'>Position & Market News</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={()=>(navigation.navigate("DailyMarketUpdates"))} className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
+                    <Text className='font-normal text-black text-base ml-3'>Daily Market Updates</Text>
+                </TouchableOpacity>
+                <TouchableOpacity className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
                     <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
                     <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
-
-
-
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                </TouchableOpacity>
+                <TouchableOpacity className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
                     <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
                     <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
-
-
-
-
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
+                </TouchableOpacity>
+                <TouchableOpacity className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
                     <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
                     <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
-
-
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
-                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
-                    <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
-
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
-                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
-                    <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
-                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
-                    <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
-                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
-                    <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
-                <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
-                    <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
-                    <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
-                </View>
+                </TouchableOpacity>
                 <View className='flex-row items-center border-b-4 border-gray-300 px-5 py-1'>
                     <Image className='w-[15px] h-[15px]' source={require("../assets/arrow-right-circle-balck.png")} />
                     <Text className='font-normal text-black text-base ml-3'>What is Finance</Text>
@@ -165,10 +171,10 @@ const Hub = () => {
                     source={require('../assets/FearLogoBlurred.png')}
                 />
             </View>
-            <View className='absolute bottom-12 right-5 '>
+            <TouchableOpacity onPress={() => (navigation.navigate("AiAssistant"))} className='absolute bottom-12 right-5 '>
                 <FastImage source={require("../assets/Robot.gif")} style={{ width: 80, height: 80 }} />
 
-            </View>
+            </TouchableOpacity>
 
             <MenuBar />
         </SafeAreaView>

@@ -1,7 +1,12 @@
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image,TextInput } from 'react-native';
 import MenuBar from '../Components/MenuBar';
 import { LineChart } from "react-native-gifted-charts";
+import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+import BgImage from '../Components/BgImage';
+
+
 
 const stockData = [
     {
@@ -56,11 +61,12 @@ const stockData = [
 ];
 
 const Markets = () => {
+    const navigation = useNavigation();
     return (
         <SafeAreaView className='bg-white flex-1'>
             <View className=''>
                 {/* Header */}
-                <View className='px-5 mt-3 flex-row items-center justify-between'>
+                {/* <View className='px-5 mt-3 flex-row items-center justify-between'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
@@ -69,15 +75,22 @@ const Markets = () => {
                     <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-                </View>
+                </View> */}
+
+                <Header />
 
                 {/* Search Bar */}
                 <View className='px-6'>
-                    <View className='mt-3 ml-1 flex-row items-center justify-between'>
+                    <View className='mt-1 ml-1 flex-row items-center justify-between'>
                         <View className='flex-row items-center gap-x-3'>
                             <Image className='h-[19px] w-[19px]' source={require("../assets/search.png")} />
                             <View>
-                                <Text className="text-[14px] font-normal text-[#A6A6A6]">Search assets</Text>
+                                <TextInput
+                                    className="text-[14px] font-normal text-[#A6A6A6]"
+                                    placeholder="Search assets"
+                                    placeholderTextColor="#A6A6A6"
+                                    style={{ padding: 0 }} // Removes default padding from TextInput to align with the previous Text styling
+                                />
                             </View>
                         </View>
                         <View className='w-[39px] h-[42px] rounded-lg bg-[#00325F] items-center justify-center'>
@@ -140,19 +153,20 @@ const Markets = () => {
                 </ScrollView>
                 <View className='items-center px-8 mt-2'>
                     <View className='w-11/12  h-[45px] flex-row items-center justify-between mt-2'>
-                        <View className='flex-row  items-center gap-x-2 w-1/2 justify-center bg-[#40bf6a]  border-white rounded-lg p-3 '>
+                        <TouchableOpacity onPress={() => (navigation.navigate("Invest"))} className='flex-row  items-center gap-x-2 w-1/2 justify-center bg-[#40bf6a]  border-white rounded-lg p-3 '>
 
                             <Text className='text-sm font-bold text-white'>Buy</Text>
-                        </View>
-                        <View className='flex-row items-center gap-x-2 w-1/2 justify-center bg-[#df2040] rounded-lg p-3'>
+                        </TouchableOpacity>
+                        <TouchableOpacity className='flex-row items-center gap-x-2 w-1/2 justify-center bg-[#df2040] rounded-lg p-3'>
 
                             <Text className='text-sm font-bold text-white'>Sell</Text>
 
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
             <MenuBar />
+            <BgImage/>
         </SafeAreaView>
     );
 };

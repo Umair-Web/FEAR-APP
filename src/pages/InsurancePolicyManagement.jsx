@@ -5,10 +5,16 @@ import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
 import LinearGradient from 'react-native-linear-gradient';
 
+import { useNavigation } from '@react-navigation/native';
+
+
+
+
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
 
 const InsurancePolicyManagement = () => {
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView className='bg-white flex-1'>
@@ -63,7 +69,7 @@ const InsurancePolicyManagement = () => {
                             start={{ x: 0, y: 0 }}
                             end={{ x: 1, y: 1 }}
                         >
-                            <TouchableOpacity className='w-[200px] h-[40px] flex-row justify-center items-center' >
+                            <TouchableOpacity  delayPressIn={1} onPress={()=>(navigation.navigate("RichKnowledge"))} className='w-[200px] h-[40px] flex-row justify-center items-center' >
                                 <Text className='text-white text-[17px] font-normal'>Contact Rich</Text>
                             </TouchableOpacity>
                         </LinearGradient>

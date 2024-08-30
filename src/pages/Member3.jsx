@@ -2,13 +2,18 @@ import React from 'react'
 import { SafeAreaView, TouchableOpacity, View, Image, Text } from 'react-native'
 import MenuBar from '../Components/MenuBar'
 import BgImage from '../Components/BgImage'
+import { useNavigation } from '@react-navigation/native';
+
+
+
 const Member2 = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView className='flex-1'>
       <View className="px-5">
         <View className='absolute ml-5 mt-3'>
-          <TouchableOpacity className='py-2 px-4 rounded-2xl bg-[#F5F5F5]'>
-            <Image source={require("../assets/Arrow1.png")} />
+          <TouchableOpacity activeOpacity={1}   delayPressIn={0.1} onPress={() => (navigation.goBack())} className='py-2 px-4 rounded-2xl bg-[#F5F5F5]'>
+            <Image className="h-[16px] w-[18px]" source={require("../assets/back2.png")} />
           </TouchableOpacity>
         </View>
         <View className='absolute top-14 left-2'>
@@ -29,7 +34,7 @@ const Member2 = () => {
           <View className='bg-[#00325F] w-full p-4 rounded-xl'>
             <Text className='font-semibold text-[20px] mb-2 text-white text-center'>All-Access Tier</Text>
             <Text className='font-normal text-[15px] text-start text-white'>
-            The all-access tier provides full access to all features of the app, including unlimited assistance from the AI assistant, direct access to top-tier financial advisors, life insurance agents, CPAs, and tax attorneys for personalized guidance and support. It also includes advanced tax optimization strategies and priority customer support. This tier price is $99.99 per month.
+              The all-access tier provides full access to all features of the app, including unlimited assistance from the AI assistant, direct access to top-tier financial advisors, life insurance agents, CPAs, and tax attorneys for personalized guidance and support. It also includes advanced tax optimization strategies and priority customer support. This tier price is $99.99 per month.
 
             </Text>
             <View className='mt-4'>
@@ -40,10 +45,10 @@ const Member2 = () => {
 
           </View>
           <View className='flex-row mt-4 gap-x-4'>
-            <TouchableOpacity className='py-3 px-12 rounded-2xl bg-[#00325F]'>
+            <TouchableOpacity activeOpacity={1}   delayPressIn={0.1} onPress={() => (navigation.navigate("Payment"))} className='py-3 px-12 rounded-2xl bg-[#00325F]'>
               <Text className='font-medium text-white'>Buy</Text>
             </TouchableOpacity>
-            <TouchableOpacity className='py-3 px-12 border-2 border-[#00325F] rounded-2xl '>
+            <TouchableOpacity activeOpacity={1}   delayPressIn={0.1} onPress={() => (navigation.goBack())} className='py-3 px-12 border-2 border-[#00325F] rounded-2xl '>
               <Text className='font-medium  text-[#00325F]'>Cancel</Text>
             </TouchableOpacity>
           </View>
@@ -52,8 +57,8 @@ const Member2 = () => {
       </View>
       <MenuBar />
       <BgImage />
-      <View 
-      className='absolute -z-10 -top-24'
+      <View
+        className='absolute -z-10 -top-24'
       >
         <Image className='w-[364px] h-[367px]' source={require("../assets/rectangle2.png")}></Image>
       </View>

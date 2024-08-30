@@ -7,7 +7,11 @@ import Header from '../Components/Header';
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
 
+import { useNavigation } from '@react-navigation/native';
+
+
 const AdsMoneyManagement = () => {
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView className='bg-white flex-1'>
@@ -36,18 +40,18 @@ const AdsMoneyManagement = () => {
             </View>
             <View className='' style={{ height: screenHeight * 0.6 }} >
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <View className='w-full px-5  flex-row items-center justify-between'>
+                    <TouchableOpacity  activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("MoneyManagementFull"))} className='w-full px-5  flex-row items-center justify-between'>
                         <Text className='text-[15px] font-normal text-black mt-2'>Top News</Text>
                         <Image className='w-5 h-5 mt-2' source={require("../assets/dots.png")} />
-                    </View>
-                    <View className='px-5'>
+                    </TouchableOpacity>
+                    <TouchableOpacity  activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("MoneyManagementFull"))}  className='px-5'>
                         <Image className='w-full  h-44 mt-1 rounded-2xl' source={require("../assets/main5.png")} />
-                    </View>
+                    </TouchableOpacity>
 
-                    <View className='px-5 border-b-[1px]  border-[#DCDCDC] pb-2 '>
+                    <TouchableOpacity  activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("MoneyManagementFull"))}  className='px-5 border-b-[1px]  border-[#DCDCDC] pb-2 '>
                         <Text className="text-base font-semibold text-black">Goals of Effective Money Management:</Text>
                         <Text className="text-[12px] ml-1 font-normal text-[#A6A6A6]">3 hours ago</Text>
-                    </View>
+                    </TouchableOpacity>
 
                     <View className='flex-col items-start px-5 mt-2 border-b-[1px]  py-2   border-[#DCDCDC]'>
                         <View className='flex-row items-start gap-x-4'>

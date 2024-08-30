@@ -7,6 +7,7 @@ const { height: screenHeight } = Dimensions.get("window");
 const { width: ScreenWidth } = Dimensions.get("window");
 
 import { ProgressChart } from 'react-native-chart-kit';
+import Header from '../Components/Header';
 
 const { width } = Dimensions.get('window');
 
@@ -185,7 +186,7 @@ const TaxAudit = () => {
     return (
         <SafeAreaView className='bg-white flex-1'>
 
-            <View className='mt-3 px-5 flex-row items-center justify-between pb-3'>
+            {/* <View className='mt-3 px-5 flex-row items-center justify-between pb-3'>
                 <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                     <Image source={require("../assets/Arrow1.png")} />
                 </TouchableOpacity>
@@ -194,7 +195,9 @@ const TaxAudit = () => {
                 <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
                 <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                 <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-            </View>
+            </View> */}
+
+            <Header/>
             <View className='px-5' style={{ height: screenHeight * 0.80 }}>
                 <ScrollView className='' showsVerticalScrollIndicator={false}>
                     <View className='flex-row justify-center'>

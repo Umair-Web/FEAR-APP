@@ -4,6 +4,7 @@ import { LineChart } from "react-native-gifted-charts";
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Slider from '@react-native-community/slider';
+import Header from '../Components/Header';
 const DailyMarketUpdates = () => {
    
     const[range,setRange]=useState(0)
@@ -32,7 +33,7 @@ const DailyMarketUpdates = () => {
         <SafeAreaView className='bg-white flex-1'>
             <View>
                 {/* Header */}
-                <View className='px-5 mt-3 flex-row items-center justify-between'>
+                {/* <View className='px-5 mt-3 flex-row items-center justify-between'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
@@ -41,9 +42,11 @@ const DailyMarketUpdates = () => {
                     <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-                </View>
+                </View> */}
 
-                <View className='px-5 mt-2'>
+                <Header/>
+
+                <View className='px-5 '>
                     <View className='p-3 border-l-[5px] border-[#003655] flex-col items-start'>
                         <Text className='text-3xl text-[#003655] font-medium'>3,839.65</Text>
                         <Text className='text-xs text-[#003655] font-normal'>105(%0.8)</Text>
@@ -89,7 +92,7 @@ const DailyMarketUpdates = () => {
 
             <ScrollView className='px-5 mt-2 mb-20'>
 
-                <Text className='font-semibold text-lg text-black border-b-2 border-black'>Stats</Text>
+                <Text className='font-semibold text-lg text-black border-b-2 border-[#1f5f97]'>Stats</Text>
 
 
                 <View className='flex-row items-center justify-between py-3  '>
@@ -109,7 +112,7 @@ const DailyMarketUpdates = () => {
                 </View>
 
 
-                <Text className='font-semibold text-lg text-black border-b-2 border-black'>Latest Quote</Text>
+                <Text className='font-semibold text-lg text-black border-b-2 border-[#1f5f97]'>Latest Quote</Text>
 
 
 
@@ -137,7 +140,7 @@ const DailyMarketUpdates = () => {
 
 
 
-                <Text className='font-semibold text-lg text-black border-b-2 border-black'>Day’s Range</Text>
+                <Text className='font-semibold text-lg text-black border-b-2 border-[#1f5f97]'>Day’s Range</Text>
 
 
 
@@ -173,7 +176,7 @@ const DailyMarketUpdates = () => {
                     <Text className='font-medium text-[#00325F] text-[14px]'>77,152</Text>
                 </View>
 
-                <Text className='font-semibold text-lg text-black border-b-2 border-black'>52-Week Range</Text>
+                <Text className='font-semibold text-lg text-black border-b-2 border-[#1f5f97]'>52-Week Range</Text>
                 
                 <View className='flex-row items-center justify-between py-3   '>
                     <Text className='font-semibold text-[#83878C] text-[14px]'>Day Low</Text>

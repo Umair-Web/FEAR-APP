@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
 import MenuBar from '../Components/MenuBar';
+import Header from '../Components/Header';
+import BgImage from '../Components/BgImage';
 
 const MoneyManagement1 = () => {
     const legalInfo = [
@@ -23,7 +25,8 @@ const MoneyManagement1 = () => {
     ];
     return (
         <SafeAreaView className='bg-white flex-1'>
-            <View className='px-5'>
+            <Header/>
+            {/* <View className='px-5'>
                 <View className=' mt-3 flex-row items-center justify-between'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
@@ -34,7 +37,7 @@ const MoneyManagement1 = () => {
                     <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
                 </View>
-            </View>
+            </View> */}
 
             <ScrollView className='px-5 mt-3'>
                 {legalInfo.map((item, index) => (
@@ -49,7 +52,7 @@ const MoneyManagement1 = () => {
                     </View> */}
                 </View>
             </ScrollView>
-
+             <BgImage/>
             <MenuBar />
         </SafeAreaView>
     );

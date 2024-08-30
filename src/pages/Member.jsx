@@ -2,13 +2,16 @@ import React from 'react'
 import { SafeAreaView, TouchableOpacity, View, Image, Text } from 'react-native'
 import MenuBar from '../Components/MenuBar'
 import BgImage from '../Components/BgImage'
+import { useNavigation } from '@react-navigation/native';
+
 const Member = () => {
+  const navigation = useNavigation();
   return (
     <SafeAreaView className='flex-1'>
       <View className="px-5">
         <View className='absolute ml-5 mt-3'>
-          <TouchableOpacity className='py-2 px-4 rounded-2xl bg-[#F5F5F5]'>
-            <Image source={require("../assets/Arrow1.png")} />
+          <TouchableOpacity activeOpacity={1}   delayPressIn={0.1} onPress={()=>(navigation.goBack())} className='py-2 px-4 rounded-2xl bg-[#F5F5F5]'>
+          <Image className="h-[16px] w-[18px]" source={require("../assets/back2.png")} />
           </TouchableOpacity>
         </View>
         <View className='absolute top-14 left-2'>
@@ -39,10 +42,10 @@ const Member = () => {
 
           </View>
           <View className='flex-row mt-4 gap-x-4'>
-            <TouchableOpacity className='py-3 px-12 rounded-2xl bg-[#00325F]'>
+            <TouchableOpacity activeOpacity={1}   delayPressIn={0.1} onPress={()=>(navigation.navigate("Payment"))} className='py-3 px-12 rounded-2xl bg-[#00325F]'>
               <Text className='font-medium text-white'>Buy</Text>
             </TouchableOpacity>
-            <TouchableOpacity className='py-3 px-12 border-2 border-[#00325F] rounded-2xl '>
+            <TouchableOpacity activeOpacity={1}   delayPressIn={0.1} onPress={() => (navigation.goBack())} className='py-3 px-12 border-2 border-[#00325F] rounded-2xl '>
               <Text className='font-medium  text-[#00325F]'>Cancel</Text>
             </TouchableOpacity>
           </View>

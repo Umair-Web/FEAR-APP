@@ -16,10 +16,10 @@ const MoneyManagementFull = () => {
                 <ScrollView  showsVerticalScrollIndicator={false}>
                 <View className='mt-2 mb-2 flex-row justify-between items-start'>
                     <View>
-                        <Text className="text-base font-semibold text-black w-[70%]">Goals of Effective Money Management</Text>
+                        <Text className="text-sm font-semibold text-black w-[65%]">Goals of Effective Money Management</Text>
                         <Text className="text-[12px] ml-1 font-normal text-[#A6A6A6]">3 hours ago</Text>
                     </View>
-                    <Text className="text-[10px] mt-2 font-normal text-[#3f3f3f]">6 min read  </Text>
+                    <Text className="text-[10px] mt-2 font-normal text-[#3f3f3f]">6 min read</Text>
 
                 </View>
 

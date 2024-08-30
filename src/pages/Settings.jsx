@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, SafeAreaView, ScrollView, Text, View } from 'react-native'
 import MenuBar from '../Components/MenuBar'
+import BgImage from '../Components/BgImage'
 
 const Settings = () => {
     return (
@@ -184,6 +185,7 @@ const Settings = () => {
                 </View>
 
             </ScrollView>
+            
             <MenuBar />
         </SafeAreaView>
     )

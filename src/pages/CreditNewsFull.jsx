@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
 import MenuBar from '../Components/MenuBar';
+import Header from '../Components/Header';
+import BgImage from '../Components/BgImage';
 
 
 const CreditNewsFull = () => {
@@ -9,7 +11,7 @@ const CreditNewsFull = () => {
     return (
         <SafeAreaView className='bg-white flex-1'>
 
-            <View className=' mt-3 px-5 flex-row items-center justify-between border-b-2 border-gray-100 pb-3'>
+            {/* <View className=' mt-3 px-5 flex-row items-center justify-between border-b-2 border-gray-100 pb-3'>
                 <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                     <Image source={require("../assets/Arrow1.png")} />
                 </TouchableOpacity>
@@ -18,12 +20,13 @@ const CreditNewsFull = () => {
                 <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
                 <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                 <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-            </View>
+            </View> */}
+            <Header/>
             <ScrollView className='mb-12 px-5'>
 
                 <View className='mt-2 mb-2 flex-row justify-between items-start'>
                     <View>
-                        <Text className="text-base font-semibold text-black"> Alternative Investments</Text>
+                        <Text className="text-base font-semibold text-black">Understanding Credit Scores</Text>
                         <Text className="text-[12px] ml-1 font-normal text-[#A6A6A6]">3 hours ago</Text>
                     </View>
                     <Text className="text-[10px] mt-2 font-normal text-[#3f3f3f]">6 min read  </Text>
@@ -46,6 +49,7 @@ const CreditNewsFull = () => {
 
 
             <MenuBar />
+            <BgImage/>
         </SafeAreaView>
 
     );

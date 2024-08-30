@@ -1,11 +1,13 @@
 import React from 'react'
 import { SafeAreaView,TouchableOpacity,View,Image,Text,ScrollView } from 'react-native'
 import MenuBar from '../Components/MenuBar'
+import Header from '../Components/Header'
+import BgImage from '../Components/BgImage'
 
 const Help = () => {
     return (
         <SafeAreaView className='flex-1 bg-white'>
-             <View className=' mt-3 px-5 flex-row items-center justify-between border-b-2 border-gray-100 pb-3'>
+             {/* <View className=' mt-3 px-5 flex-row items-center justify-between border-b-2 border-gray-100 pb-3'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
@@ -14,7 +16,9 @@ const Help = () => {
                     <Image source={require("../assets/notification.png")} />
                     <Image source={require("../assets/questionmark.png")} />
                     <Image source={require("../assets/settings.png")} />
-                </View>
+                </View> */}
+
+                <Header/>
 
             <ScrollView className="px-5 flex-col gap-y-1 mb-[73px] mt-0.5">
                 <Text className='font-semibold text-[#2A3039] text-base mt-2'>Help with account</Text>
@@ -71,6 +75,7 @@ const Help = () => {
 
 
             </ScrollView>
+            <BgImage/>
            <MenuBar/>
         </SafeAreaView>
     )

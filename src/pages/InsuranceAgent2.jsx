@@ -74,7 +74,7 @@ const InsuranceAgent2 = () => {
         <SafeAreaView className='bg-white flex-1'>
             <Header />
             <View className='px-5' style={{height:screenHeight*0.9}} >
-                <ScrollView >
+                <ScrollView showsVerticalScrollIndicator={false}>
                     <View className='p-2'>
                         <Image className=' h-[220px] object-contain w-full rounded-lg' source={require("../assets/download.jpeg")} />
                     </View>

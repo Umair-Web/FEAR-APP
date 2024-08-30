@@ -1,20 +1,17 @@
 import React from 'react'
 import { SafeAreaView, TouchableOpacity, Image, Text, View, ScrollView } from 'react-native'
 import MenuBar from '../Components/MenuBar'
+import { useNavigation } from '@react-navigation/native';
+import Header from '../Components/Header';
+import BgImage from '../Components/BgImage';
+
+
 
 const Book3 = () => {
+    const navigation = useNavigation();
     return (
         <SafeAreaView className='bg-white flex-1'>
-            <View className=' mt-3 px-5 flex-row items-center justify-between'>
-                    <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                        <Image source={require("../assets/Arrow1.png")} />
-                    </TouchableOpacity>
-                    <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
-                    <Text className="text-[18px] font-normal text-black">David Walker</Text>
-                    <Image source={require("../assets/notification.png")} />
-                    <Image source={require("../assets/questionmark.png")} />
-                    <Image source={require("../assets/settings.png")} />
-                </View>
+           <Header/>
             
             <ScrollView className="px-5 mb-10">
                 
@@ -49,7 +46,9 @@ const Book3 = () => {
                 <View>
                     <View className='w-full flex-row items-center justify-between'>
                         <Text className='text-xl font-semibold text-[#00325F] mt-2'>About Rich knowledge</Text>
-                        <Image className='w-5 h-5' source={require("../assets/right-00325f.png")} />
+                        <TouchableOpacity    delayPressIn={1} onPress={()=>(navigation.navigate("RichKnowledge"))}>
+                            <Image className='w-5 h-5' source={require("../assets/right-00325f.png")} />
+                        </TouchableOpacity>
                     </View>
 
                     <Text className='text-sm mt-2 font-bold text-gray-400'>Rich Knowledge, that empowers individuals to take control of their finances and achieve generational wealth.</Text>
@@ -105,6 +104,7 @@ const Book3 = () => {
                 </View>
             </ScrollView>
             <MenuBar />
+            <BgImage/>
         </SafeAreaView>
     )
 }

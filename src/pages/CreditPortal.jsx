@@ -3,6 +3,10 @@ import { View, Text, SafeAreaView, TouchableOpacity, Image, ScrollView, StyleShe
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import { ProgressChart } from 'react-native-chart-kit';
+import { useNavigation } from '@react-navigation/native';
+import FastImage from 'react-native-fast-image';
+
+
 const { width } = Dimensions.get('window');
 
 const CreditPortal = () => {
@@ -56,6 +60,8 @@ const CreditPortal = () => {
     };
 
 
+
+    const navigation = useNavigation();
     return (
         <SafeAreaView className='bg-white flex-1'>
             <View style={styles.container}>
@@ -65,22 +71,24 @@ const CreditPortal = () => {
             </View>
 
                {/* Header */}
-               <View className='px-5 mt-8 flex-row items-center justify-between'>
-                    <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                        <Image source={require("../assets/Arrow1.png")} />
+               <View className='px-5 mt-10 flex-row items-center justify-between'>
+                    <TouchableOpacity onPress={() => (navigation.goBack())} className='py-2 px-4 rounded-2xl bg-black/10'>
+                        <Image className="h-[16px] w-[18px]" source={require("../assets/back2.png")} />
                     </TouchableOpacity>
                     <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
                     <Text className="text-[18px] font-normal text-black">David Walker</Text>
-                    <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
-                    <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
-                    <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-                </View>
+                    <TouchableOpacity activeOpacity={1} delayPressIn={0.1} onPress={() => (navigation.navigate("Notifications"))}><Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} /></TouchableOpacity>
+                    <TouchableOpacity activeOpacity={1} delayPressIn={0.1} onPress={() => (navigation.navigate("Help"))}><Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} /></TouchableOpacity>
+                    <TouchableOpacity activeOpacity={1} delayPressIn={0.1} onPress={() => (navigation.navigate("Settings"))}><Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} /></TouchableOpacity>
 
+
+
+                </View>
 
             <ScrollView className='mb-16'>
              
                 <View className='px-5'>
-                    <Text className="text-4xl font-semibold text-black mt-1">Credit Portal</Text>
+                    <Text className="text-4xl font-semibold text-black mt-1">Prosperity Credit</Text>
 
                     <Text className="text-sm font-normal text-black mt-1">Your all in one hub for Credit management</Text>
 
@@ -151,15 +159,15 @@ const CreditPortal = () => {
 
                     <View>
                         <View className=' h-[45px] flex-row items-center justify-between  gap-x-1'>
-                            <View className=' bg-white border w-1/2  border-black rounded-lg p-2'>
+                            <TouchableOpacity  delayPressIn={1} onPress={()=>(navigation.navigate("FicoScoring"))}  className=' bg-white border w-1/2  border-black rounded-lg p-2'>
 
                                 <Text className='text-base font-semibold text-black'>FICO Score
                                     Module</Text>
-                            </View>
-                            <View className=' bg-white border w-1/2   border-black rounded-lg p-2'>
+                            </TouchableOpacity>
+                            <TouchableOpacity  delayPressIn={0.1} onPress={()=>(navigation.navigate("AdsCredit"))} className=' bg-white border w-1/2   border-black rounded-lg p-2'>
 
                                 <Text className='text-base text-center font-semibold text-black'>News</Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
 
                         <View>
@@ -168,16 +176,16 @@ const CreditPortal = () => {
                             <View className='flex-row items-center'>
                                 <View className='w-2/3'>
                                     <Text className='text-sm font-normal text-black'>With the F.E.A.R app, you can have access to relevant reports, consumer laws, dispute laws and education regarding credit.</Text></View>
-                                <View className=' bg-white border w-1/3  border-black rounded-lg p-2'>
+                                <TouchableOpacity className=' bg-white border w-1/3  border-black rounded-lg p-2'>
 
-                                    <Text className='text-base font-semibold text-black text-center'>History</Text>
-                                </View>
+                                    <Text delayPressIn={1} onPress={()=>(navigation.navigate("ExpenseTracking"))}  className='text-base font-semibold text-black text-center'>History</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
 
                         <View className='flex-row justify-between mt-2'>
-                            <View className='relative'>
-                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/random.jpeg")} />
+                            <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("MoneyManagement2"))} className='relative'>
+                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/report2.jpg")} />
                                 <View className='flex-row items-end justify-between absolute w-32 top-6 left-2 '>
                                     <View className='flex-col items-start gap-y-2'>
                                         <Image className='w-10 h-10' source={require("../assets/report.png")} />
@@ -189,11 +197,11 @@ const CreditPortal = () => {
                                     </View>
 
                                 </View>
-                            </View>
+                            </TouchableOpacity>
 
 
-                            <View className='relative'>
-                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/random.jpeg")} />
+                            <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("ConsumerCredit"))} className='relative'>
+                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/laws.jpg")} />
                                 <View className='flex-row items-end justify-between absolute w-32 top-6 left-2 '>
                                     <View className='flex-col items-start gap-y-2'>
                                         <Image className='w-10 h-10' source={require("../assets/Law.png")} />
@@ -207,13 +215,13 @@ const CreditPortal = () => {
                                     </View>
 
                                 </View>
-                            </View>
+                            </TouchableOpacity>
 
                         </View>
 
                         <View className='flex-row justify-between mt-2 '>
-                            <View className='relative'>
-                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/random.jpeg")} />
+                            <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("MoneyManagement3"))} className='relative'>
+                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/dispute.jpg")} />
                                 <View className='flex-row items-end justify-between absolute w-32 top-6 left-2 '>
                                     <View className='flex-col items-start gap-y-2'>
                                         <Image className='w-10 h-10' source={require("../assets/dispute.png")} />
@@ -225,11 +233,11 @@ const CreditPortal = () => {
                                     </View>
 
                                 </View>
-                            </View>
+                            </TouchableOpacity>
 
 
-                            <View className='relative'>
-                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/random.jpeg")} />
+                            <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("CreditEducation"))} className='relative'>
+                                <Image className='w-[150px] h-[100px] rounded-2xl' source={require("../assets/edu2.jpg")} />
                                 <View className='flex-row items-end justify-between absolute w-32 top-6 left-2 '>
                                     <View className='flex-col items-start gap-y-2'>
                                         <Image className='w-10 h-10' source={require("../assets/Education.png")} />
@@ -243,7 +251,7 @@ const CreditPortal = () => {
                                     </View>
 
                                 </View>
-                            </View>
+                            </TouchableOpacity>
 
                         </View>
 
@@ -260,6 +268,10 @@ const CreditPortal = () => {
 
 
             </ScrollView>
+            <TouchableOpacity onPress={()=>(navigation.navigate("AiAssistant"))} className='absolute bottom-12 right-5 '>
+                <FastImage source={require("../assets/Robot.gif")} style={{ width: 80, height: 80 }} />
+
+            </TouchableOpacity>
             <MenuBar />
             <BgImage />
         </SafeAreaView>

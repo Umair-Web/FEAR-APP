@@ -3,21 +3,24 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInpu
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+
 
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
 
 const MoneyManagementEducation1 = () => {
+    const navigation = useNavigation();
     const chapters = [
 
         // Money Management Chapters
-        { title: 'Chapter 1 Introduction to Money Management', date: '29 Oct 2023', size: '2 MB' },
-        { title: 'Chapter 2 Creating a Budget', date: '29 Oct 2023', size: '14 KB' },
-        { title: 'Chapter 3 Saving Strategies', date: '29 Oct 2023', size: '14 KB' },
-        { title: 'Chapter 4 Debt Management', date: '29 Oct 2023', size: '14 KB' },
-        { title: 'Chapter 5 Investing Basics', date: '29 Oct 2023', size: '14 KB' },
-        { title: 'Chapter 6 Retirement Planning', date: '29 Oct 2023', size: '14 KB' },
-        { title: 'Chapter 7 Financial Planning For Major Life Events', date: '29 Oct 2023', size: '14 KB' }
+        { title: 'Chapter 1 Introduction to Money Management', date: '29 Oct 2023', size: '2 MB',Link:"MoneyManagementEduPdf" },
+        { title: 'Chapter 2 Creating a Budget', date: '29 Oct 2023', size: '14 KB',Link:"MoneyManagementEduPdf" },
+        { title: 'Chapter 3 Saving Strategies', date: '29 Oct 2023', size: '14 KB',Link:"MoneyManagementEduPdf" },
+        { title: 'Chapter 4 Debt Management', date: '29 Oct 2023', size: '14 KB',Link:"MoneyManagementEduPdf" },
+        { title: 'Chapter 5 Investing Basics', date: '29 Oct 2023', size: '14 KB',Link:"MoneyManagementEduPdf" },
+        { title: 'Chapter 6 Retirement Planning', date: '29 Oct 2023', size: '14 KB',Link:"MoneyManagementEduPdf"},
+        { title: 'Chapter 7 Financial Planning For Major Life Events', date: '29 Oct 2023', size: '14 KB',Link:"MoneyManagementEduPdf" }
     ];
 
     return (
@@ -46,7 +49,7 @@ const MoneyManagementEducation1 = () => {
             <View className='px-5' style={{ height: screenHeight * 0.75 }} >
                 <ScrollView showsVerticalScrollIndicator={false}>
                     {chapters.map((chapter, index) => (
-                        <View key={index} className='flex-row justify-between items-start p-3 mt-2 border-[1px] border-[#DCDCDC] rounded-xl mb-2'>
+                        <TouchableOpacity delayPressIn={1} onPress={()=>(navigation.navigate(chapter.Link))} key={index} className='flex-row justify-between items-start p-3 mt-2 border-[1px] border-[#DCDCDC] rounded-xl mb-2'>
                             <View className='flex-row items-center gap-x-1'>
                                 <Image className='w-[35px] h-[36px]' source={require("../assets/FearLogo.png")} />
                                 <View className='flex-col items-start w-4/5'>
@@ -57,7 +60,7 @@ const MoneyManagementEducation1 = () => {
                             <View>
                                 <Image className='w-[23px] h-[23px] mt-1' source={require("../assets/dots.png")} />
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     ))}
                 </ScrollView>
             </View>

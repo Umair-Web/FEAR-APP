@@ -1,25 +1,32 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
 import MenuBar from '../Components/MenuBar';
+import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
 
-const chapters = [
-    { title: 'Chapter 1 Introduction to Trading and Investing', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 2 Creating a trade', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 3 Trading Strategies', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 4 Trading Strategies', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 5 Investing Basics', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 6 Retirement Planning', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 7 Financial Planning For Major Life Events', date: '29 Oct 2023', size: '14 KB' }
-];
+
+
 
 const TradingandInvesting = () => {
+
+    const navigation = useNavigation();
+    const chapters = [
+        { title: 'Chapter 1 Introduction to Trading and Investing', date: '29 Oct 2023', size: '14 KB',Link:"TradingandInvestingEdu" },
+        { title: 'Chapter 2 Creating a trade', date: '29 Oct 2023', size: '14 KB',Link:"TradingandInvestingEdu" },
+        { title: 'Chapter 3 Trading Strategies', date: '29 Oct 2023', size: '14 KB',Link:"TradingandInvestingEdu" },
+        { title: 'Chapter 4 Trading Strategies', date: '29 Oct 2023', size: '14 KB',Link:"TradingandInvestingEdu" },
+        { title: 'Chapter 5 Investing Basics', date: '29 Oct 2023', size: '14 KB',Link:"TradingandInvestingEdu" },
+        { title: 'Chapter 6 Retirement Planning', date: '29 Oct 2023', size: '14 KB' ,Link:"TradingandInvestingEdu"},
+        { title: 'Chapter 7 Financial Planning For Major Life Events', date: '29 Oct 2023', size: '14 KB',Link:"TradingandInvestingEdu" }
+    ];
+    
 
 
     return (
         <SafeAreaView className='bg-white flex-1'>
 
             <View>
-                <View className='px-5'>
+                {/* <View className='px-5'>
                     <View className=' mt-3 flex-row items-center justify-between'>
                         <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                             <Image source={require("../assets/Arrow1.png")} />
@@ -30,7 +37,9 @@ const TradingandInvesting = () => {
                         <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                         <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
                     </View>
-                </View>
+                </View> */}
+
+                <Header/>
 
                 <View className='px-5'>
                     <View className=' mt-3 ml-1 flex-row items-start justify-between'>
@@ -51,7 +60,7 @@ const TradingandInvesting = () => {
             </View>
             <ScrollView className='px-5 mt-5'>
                 {chapters.map((chapter, index) => (
-                    <View key={index} className='flex-row justify-between items-start p-3 border-[1px] border-[#DCDCDC] rounded-xl mb-2'>
+                    <TouchableOpacity onPress={()=>(navigation.navigate(chapter.Link))} key={index} className='flex-row justify-between items-start p-3 border-[1px] border-[#DCDCDC] rounded-xl mb-2'>
                         <View className='flex-row items-center gap-x-1'>
                             <Image className='w-[35px] h-[36px]' source={require("../assets/FearLogo.png")} />
                             <View className='flex-col items-start w-4/5'>
@@ -62,7 +71,7 @@ const TradingandInvesting = () => {
                         <View>
                             <Image className='w-[23px] h-[23px] mt-1' source={require("../assets/dots.png")} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 ))}
             </ScrollView>
             <MenuBar />

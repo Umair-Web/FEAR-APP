@@ -5,6 +5,9 @@ import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
 import LinearGradient from 'react-native-linear-gradient';
 const { height: screenHeight } = Dimensions.get("window");
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const FICO_DATA = [
     {
@@ -50,6 +53,7 @@ const FICO_DATA = [
 ];
 
 const FicoScoring = () => {
+    const navigation = useNavigation();
     return (
         <SafeAreaView className='bg-white flex-1'>
             <Header />
@@ -92,7 +96,7 @@ const FicoScoring = () => {
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
                     >
-                        <TouchableOpacity className='w-[200px] h-[40px] flex-row justify-center items-center' >
+                        <TouchableOpacity onPress={()=>(navigation.navigate("RichKnowledge"))} className='w-[200px] h-[40px] flex-row justify-center items-center' >
                             <Text className='text-white text-[17px] font-normal'>Contact Rich</Text>
                         </TouchableOpacity>
                     </LinearGradient>

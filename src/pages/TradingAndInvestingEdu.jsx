@@ -1,16 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, Animated, StyleSheet, Dimensions, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
 import MenuBar from '../Components/MenuBar';
+import Header from '../Components/Header';
 
-const chapters = [
-    { title: 'Chapter 1 Introduction to Trading and Investing', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 2 Creating a trade', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 3 Trading Strategies', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 4 Trading Strategies', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 5 Investing Basics', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 6 Retirement Planning', date: '29 Oct 2023', size: '14 KB' },
-    { title: 'Chapter 7 Financial Planning For Major Life Events', date: '29 Oct 2023', size: '14 KB' }
-];
+
 
 const TradingandInvestingEdu = () => {
 
@@ -18,7 +11,7 @@ const TradingandInvestingEdu = () => {
     return (
         <SafeAreaView className='bg-white flex-1'>
 
-            <View className='px-5'>
+            {/* <View className='px-5'>
                 <View className=' mt-3 flex-row items-center justify-between'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
@@ -29,7 +22,9 @@ const TradingandInvestingEdu = () => {
                     <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
                 </View>
-            </View>
+            </View> */}
+
+            <Header/>
 
 
             <ScrollView className='px-5 mt-1 mb-12'>

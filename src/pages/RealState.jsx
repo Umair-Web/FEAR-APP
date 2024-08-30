@@ -3,6 +3,8 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInpu
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+
 
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
@@ -16,6 +18,37 @@ const RealState = () => {
     const [priceRange, setPriceRange] = useState("");
     const [beds, setBeds] = useState("");
     const [year, setYear] = useState("");
+
+    const navigation = useNavigation();
+
+
+    const properties = [
+        {
+            id: 1,
+            name: 'The Stables',
+            price: '$9540.99',
+            location: 'Terry Lane, Golden CO 80403',
+            image: require("../assets/home.jpg"),
+            Link:"RealState2"
+        },
+        {
+            id: 2,
+            name: 'The Stables',
+            price: '$9540.99',
+            location: 'Terry Lane, Golden CO 80403',
+            image: require("../assets/home.jpg"),
+            Link:"RealState2"
+        },
+        {
+            id: 3,
+            name: 'The Stables',
+            price: '$9540.99',
+            location: 'Terry Lane, Golden CO 80403',
+            image: require("../assets/home.jpg"),
+              Link:"RealState2"
+        },
+        // Add more objects as needed
+    ];
 
     return (
         <SafeAreaView className='bg-white flex-1'>
@@ -138,58 +171,22 @@ const RealState = () => {
 
 
                     <View className='flex-row flex-wrap full gap-4 mt-4'>
-                        <View className='w-[45%] bg-[#e2e0e5] rounded-xl p-2 relative'>
-                            <Image className='w-[100%] h-24 rounded-lg object-contain' source={require("../assets/home.jpg")} />
+                        {properties.map((property) => (
+                            <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate(property.Link))} key={property.id} className='w-[45%] bg-[#e2e0e5] rounded-xl p-2 relative'>
+                                <Image className='w-[100%] h-24 rounded-lg object-contain' source={property.image} />
 
-                            <Text className='font-bold text-xs text-black mt-1'>The Stables</Text>
-                            <Text className='font-normal text-xs text-[#022E46] mt-1'>$ 9540.99</Text>
-                            <View className='flex-row justify-between mt-1 items-center '>
-                                <Image className='w-3 h-3' source={require("../assets/location-gray.png")} />
-                                <Text className='font-normal w-[90%] text-[#7F7F7F] text-[10px]'>Terry Lane, Golden CO 80403</Text>
-                            </View>
+                                <Text className='font-bold text-xs text-black mt-1'>{property.name}</Text>
+                                <Text className='font-normal text-xs text-[#022E46] mt-1'>{property.price}</Text>
+                                <View className='flex-row justify-between mt-1 items-center'>
+                                    <Image className='w-3 h-3' source={require("../assets/location-gray.png")} />
+                                    <Text className='font-normal w-[90%] text-[#7F7F7F] text-[10px]'>{property.location}</Text>
+                                </View>
 
-                            <View className='bg-[#768494] w-6 h-6 items-center justify-center right-2 top-2 absolute rounded-full'>
-                                <Image className='w-3 h-3' source={require("../assets/heart-empty.png")} />
-
-                            </View>
-
-                        </View>
-
-
-                        <View className='w-[45%] bg-[#e2e0e5] rounded-xl p-2 relative'>
-                            <Image className='w-[100%] h-24 rounded-lg object-contain' source={require("../assets/home.jpg")} />
-
-                            <Text className='font-bold text-xs text-black mt-1'>The Stables</Text>
-                            <Text className='font-normal text-xs text-[#022E46] mt-1'>$ 9540.99</Text>
-                            <View className='flex-row justify-between mt-1 items-center '>
-                                <Image className='w-3 h-3' source={require("../assets/location-gray.png")} />
-                                <Text className='font-normal w-[90%] text-[#7F7F7F] text-[10px]'>Terry Lane, Golden CO 80403</Text>
-                            </View>
-
-                            <View className='bg-[#768494] w-6 h-6 items-center justify-center right-2 top-2 absolute rounded-full'>
-                                <Image className='w-3 h-3' source={require("../assets/heart-empty.png")} />
-
-                            </View>
-
-                        </View>
-
-
-                        <View className='w-[45%] bg-[#e2e0e5] rounded-xl p-2 relative'>
-                            <Image className='w-[100%] h-24 rounded-lg object-contain' source={require("../assets/home.jpg")} />
-
-                            <Text className='font-bold text-xs text-black mt-1'>The Stables</Text>
-                            <Text className='font-normal text-xs text-[#022E46] mt-1'>$ 9540.99</Text>
-                            <View className='flex-row justify-between mt-1 items-center '>
-                                <Image className='w-3 h-3' source={require("../assets/location-gray.png")} />
-                                <Text className='font-normal w-[90%] text-[#7F7F7F] text-[10px]'>Terry Lane, Golden CO 80403</Text>
-                            </View>
-
-                            <View className='bg-[#768494] w-6 h-6 items-center justify-center right-2 top-2 absolute rounded-full'>
-                                <Image className='w-3 h-3' source={require("../assets/heart-empty.png")} />
-
-                            </View>
-
-                        </View>
+                                <View className='bg-[#768494] w-6 h-6 items-center justify-center right-2 top-2 absolute rounded-full'>
+                                    <Image className='w-3 h-3' source={require("../assets/heart-empty.png")} />
+                                </View>
+                            </TouchableOpacity>
+                        ))}
 
 
                     </View>

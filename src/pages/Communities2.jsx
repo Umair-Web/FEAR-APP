@@ -3,12 +3,15 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInpu
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+
 
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
 
 const Communities2 = () => {
     const [search, setSearch] = useState("");
+    const navigation = useNavigation();
     return (
         <SafeAreaView className='bg-white flex-1'>
             <Header />
@@ -60,12 +63,12 @@ const Communities2 = () => {
                                 <View className='w-[33px] h-[33px]'>
                                     <Image className='w-[28px] h-[28px]' source={require("../assets/thumb-up.png")} />
                                 </View>
-                                <View className='w-[33px] h-[33px]'>
+                                <TouchableOpacity delayPressIn={1} onPress={()=>(navigation.navigate("ChatRoom2"))} className='w-[33px] h-[33px]'>
                                     <Image className='w-[26px] h-[26px]' source={require("../assets/call.png")} />
-                                </View>
-                                <View className='w-[33px] h-[33px]'>
+                                </TouchableOpacity>
+                                <TouchableOpacity delayPressIn={1} onPress={()=>(navigation.navigate("ChatRoom2"))} className='w-[33px] h-[33px]'>
                                     <Image className='w-[28px] h-[28px]' source={require("../assets/chat2.png")} />
-                                </View>
+                                </TouchableOpacity>
                             </View>
 
 
@@ -101,12 +104,12 @@ const Communities2 = () => {
                                 <View className='w-[33px] h-[33px]'>
                                     <Image className='w-[28px] h-[28px]' source={require("../assets/thumb-up.png")} />
                                 </View>
-                                <View className='w-[33px] h-[33px]'>
+                                <TouchableOpacity delayPressIn={1} onPress={()=>(navigation.navigate("ChatRoom2"))} className='w-[33px] h-[33px]'>
                                     <Image className='w-[26px] h-[26px]' source={require("../assets/call.png")} />
-                                </View>
-                                <View className='w-[33px] h-[33px]'>
+                                </TouchableOpacity>
+                                <TouchableOpacity delayPressIn={1} onPress={()=>(navigation.navigate("ChatRoom2"))} className='w-[33px] h-[33px]'>
                                     <Image className='w-[28px] h-[28px]' source={require("../assets/chat2.png")} />
-                                </View>
+                                </TouchableOpacity>
                             </View>
 
 

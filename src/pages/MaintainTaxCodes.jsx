@@ -5,13 +5,18 @@ import BgImage from '../Components/BgImage';
 const { height: screenHeight } = Dimensions.get("window")
 import LinearGradient from 'react-native-linear-gradient';
 
+import { useNavigation } from '@react-navigation/native';
+import Header from '../Components/Header';
+
+
 const MaintainTaxCodes = () => {
+    const navigation = useNavigation();
 
 
     return (
         <SafeAreaView className='bg-white flex-1'>
 
-            <View className=' mt-3 px-5 flex-row items-center justify-between  pb-3'>
+            {/* <View className=' mt-3 px-5 flex-row items-center justify-between  pb-3'>
                 <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                     <Image source={require("../assets/Arrow1.png")} />
                 </TouchableOpacity>
@@ -20,7 +25,8 @@ const MaintainTaxCodes = () => {
                 <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
                 <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                 <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-            </View>
+            </View> */}
+            <Header/>
             <Text className='font-semibold text-[20px] text-[#00325F] px-5'>Maintain tax codes</Text>
             <View style={{ height: screenHeight * 0.70 }} className='mt-2'>
                 <ScrollView className=' px-5'>
@@ -368,7 +374,9 @@ const MaintainTaxCodes = () => {
                     end={{ x: 1, y: 1 }}
                 >
                     <TouchableOpacity className='w-[200px] h-[40px] flex-row justify-center items-center' >
-                        <Text className='text-white text-[17px] font-normal'>Contact Rich</Text>
+                        <TouchableOpacity onPress={() => (navigation.navigate("RichKnowledge"))} className='w-[200px] h-[40px] flex-row justify-center items-center' >
+                            <Text className='text-white text-[17px] font-normal'>Contact Rich</Text>
+                        </TouchableOpacity>
                     </TouchableOpacity>
                 </LinearGradient>
             </View>

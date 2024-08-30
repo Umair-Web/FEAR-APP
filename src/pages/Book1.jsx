@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
-import { SafeAreaView, TouchableOpacity, Text, Image, View,ScrollView } from 'react-native'
+import { SafeAreaView, TouchableOpacity, Text, Image, View, ScrollView } from 'react-native'
 import MenuBar from '../Components/MenuBar'
+
+import { useNavigation } from '@react-navigation/native';
+import Header from '../Components/Header';
+import BgImage from '../Components/BgImage';
+
 
 const Book1 = () => {
     const [rating, setRating] = useState(4);
@@ -8,20 +13,13 @@ const Book1 = () => {
         setRating(star)
         console.log(rating)
     }
+
+    const navigation = useNavigation();
     return (
         <SafeAreaView className='bg-white flex-1'>
-              <View className='px-5 mt-3 flex-row items-center justify-between'>
-                    <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                        <Image source={require("../assets/Arrow1.png")} />
-                    </TouchableOpacity>
-                    <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
-                    <Text className="text-[18px] font-normal text-black">David Walker</Text>
-                    <Image source={require("../assets/notification.png")} />
-                    <Image source={require("../assets/questionmark.png")} />
-                    <Image source={require("../assets/settings.png")} />
-            </View>
+            <Header/>
             <ScrollView className="px-5">
-              
+
                 <View className='items-center mt-6'>
                     <Image className='h-[210px] w-[140px] object-contain rounded-xl' source={require("../assets/BookSample.jpg")} />
                 </View>
@@ -31,7 +29,7 @@ const Book1 = () => {
                     <View className='flex-row gap-x-1'>
                         {[1, 2, 3, 4, 5].map((star) => (
                             <TouchableOpacity key={star} onPress={() => handleRating(star)}>
-                                <Text className={`${star<=rating?'text-[#FFD700]':'text-[#CCC]'} text-lg`}>
+                                <Text className={`${star <= rating ? 'text-[#FFD700]' : 'text-[#CCC]'} text-lg`}>
                                     ★
                                 </Text>
                             </TouchableOpacity>
@@ -56,7 +54,10 @@ const Book1 = () => {
                 <View>
                     <View className='w-full flex-row items-center justify-between'>
                         <Text className='text-xl font-semibold text-[#00325F] mt-2'>What’s Inside</Text>
-                        <Image className='w-5 h-5' source={require("../assets/right-00325f.png")} />
+                        <TouchableOpacity    delayPressIn={1} onPress={()=>(navigation.navigate("Book2"))}>
+                            <Image className='w-5 h-5' source={require("../assets/right-00325f.png")} />
+                        </TouchableOpacity>
+
                     </View>
 
                     <Text className='text-sm font-bold text-gray-400'>Take a comprehensive look at your financial landscape, including income, expenses, debts, and assets. Understanding your current financial position is crucial for developing a realistic retirement plan. It
@@ -77,6 +78,7 @@ const Book1 = () => {
                 </View>
 
             </ScrollView>
+            <BgImage/>
             <MenuBar />
         </SafeAreaView>
     )

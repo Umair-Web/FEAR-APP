@@ -7,7 +7,12 @@ import LinearGradient from 'react-native-linear-gradient';
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
 
+import { useNavigation } from '@react-navigation/native';
+
+
 const ExpenseTrackingText = () => {
+
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView className='bg-white flex-1'>
@@ -84,18 +89,19 @@ const ExpenseTrackingText = () => {
 
 
                 </ScrollView>
-                <View className=' items-center mt-2'>
+                <TouchableOpacity    activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("RichKnowledge"))} className=' items-center mt-2'>
                     <LinearGradient
+                 
                         colors={['#01101D', '#0078BB']}
                         style={{ width: "300px", height: "0px", shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 10 }}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
                     >
-                        <TouchableOpacity className='w-[200px] h-[40px] flex-row justify-center items-center' >
+                        <TouchableOpacity      delayPressIn={1} onPress={()=>(navigation.navigate("RichKnowledge"))} className='w-[200px] h-[40px] flex-row justify-center items-center' >
                             <Text className='text-white text-[17px] font-normal'>Contact Rich</Text>
                         </TouchableOpacity>
                     </LinearGradient>
-                </View>
+                </TouchableOpacity>
             </View>
 
             <BgImage />

@@ -38,9 +38,9 @@ const Allpayments = () => {
                         <Text className="text-[18px] font-extrabold text-white">$0.00</Text>
                     </View>
 
-                    <Image source={require("../assets/bellwhite.png")} />
-                    <Image source={require("../assets/questionWhite.png")} />
-                    <Image source={require("../assets/settingsWhite.png")} />
+                    <Image className='w-[20px] h-[20px]' source={require("../assets/bell-white.png")} />
+                    <Image className='w-[18px] h-[18px]' source={require("../assets/question-white.png")} />
+                    <Image className='w-[18px] h-[18px]' source={require("../assets/settings-white.png")} />
                 </View>
             </View>
             <View className="absolute w-full h-3/5 -z-10 bg-[#00325F] rounded-bl-3xl rounded-br-3xl">
@@ -116,6 +116,8 @@ const Allpayments = () => {
                 <Image source={require("../assets/right-arrow.png")} className='w-4 h-4'/>
             </View>
            <MenuBar/>
+           <BgImage/>
+          
    
         </SafeAreaView>
     )

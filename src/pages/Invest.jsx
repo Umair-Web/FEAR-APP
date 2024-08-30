@@ -3,15 +3,20 @@ import { View, Text, SafeAreaView, TextInput, TouchableOpacity, Image, Touchable
 import { Picker } from '@react-native-picker/picker';
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
+import { useNavigation } from '@react-navigation/native';
+import Header from '../Components/Header';
+
 
 const Invest = () => {
     const [selectedCurrency, setSelectedCurrency] = useState('USD'); // Default currency
     const [value, setValue] = useState('');
+
+    const navigation = useNavigation();
     return (
         <SafeAreaView className='bg-white flex-1'>
             <View>
                 {/* Header */}
-                <View className='px-5 mt-3 flex-row items-center justify-between'>
+                {/* <View className='px-5 mt-3 flex-row items-center justify-between'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
@@ -20,7 +25,8 @@ const Invest = () => {
                     <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-                </View>
+                </View> */}
+                <Header/>
                 <Text className='text-[20px] font-semibold text-black text-center mt-2'>Buy Stock Coin</Text>
                 <View className='px-5 flex-row items-center justify-between'>
                     <Text className='text-[17px] font-medium text-black/40 my-4'>
@@ -75,7 +81,7 @@ const Invest = () => {
                     </Text>
 
                 <View className='px-6 mt-[350px]'>
-                    <TouchableOpacity className='bg-[#004B90]/80 items-center justify-center p-3 rounded-full'>
+                    <TouchableOpacity onPress={()=>(navigation.navigate("Login"))} className='bg-[#004B90]/80 items-center justify-center p-3 rounded-full'>
                         <Text className='text-white font-normal text-[17px]'>Log in</Text>
                     </TouchableOpacity>
                 </View>

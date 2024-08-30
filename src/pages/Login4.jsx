@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import { Image, SafeAreaView, Text, View, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, TextInput, ScrollView, TouchableOpacity, StyleSheet, Button } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
+import BgImage from '../Components/BgImage';
+
 
 const Login4 = () => {
     const options = [
@@ -33,6 +36,8 @@ const Login4 = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedOption2, setSelectedOption2] = useState(null);
     const [progress, setProgress] = useState(33);
+
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView className='bg-white flex-1'>
@@ -329,9 +334,11 @@ const Login4 = () => {
             </ScrollView>
 
           
-            <View className='absolute w-[26px] h-[26px] border-2 border-[#00325F] rounded-full top-2 right-4 items-center justify-center'>
+            <TouchableOpacity activeOpacity={1} delayPressIn={0.1} onPress={()=>(navigation.navigate("SecurityQuestion"))} className='absolute w-[26px] h-[26px] border-2 border-[#00325F] rounded-full top-2 right-4 items-center justify-center'>
                 <Image source={require("../assets/right-arrow.png")} className='w-4 h-4' />
-            </View>
+            </TouchableOpacity>
+
+            <BgImage/>
 
         </SafeAreaView>
     )

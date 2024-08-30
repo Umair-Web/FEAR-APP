@@ -1,70 +1,56 @@
 import React, { Component } from 'react';
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, StyleSheet,Dimensions } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import MenuBar from '../Components/MenuBar';
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
-const {height:screenHeight}=Dimensions.get("window")
 import { BarChart } from 'react-native-gifted-charts';
 import LinearGradient from 'react-native-linear-gradient';
-LinearGradient
-const barData = [
-    {
-        value: 30, frontColor: '#71c4ca', topLabelComponent: () => (
-            <Text style={{ color: 'black', fontSize: 13, marginBottom: 6 }}>30</Text>
-        ),
-    },
-    {
-        value: 40, frontColor: '#eedb85', topLabelComponent: () => (
-            <Text style={{ color: 'black', fontSize: 13, marginBottom: 6 }}>40</Text>
-        ),
-    },
-    {
-        value: 60, frontColor: '#f08699', topLabelComponent: () => (
-            <Text style={{ color: 'black', fontSize: 13, marginBottom: 6 }}>60</Text>
-        ),
-    },
+import Header from '../Components/Header';
+import BgImage from '../Components/BgImage';
 
-];
+const { height: screenHeight } = Dimensions.get('window');
 
-export default class MoneyManagement2 extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            tableHead: ['Account\nType', 'Total\nNumber', 'Balance', 'Credit\nLimit'],
-            tableTitle: ['Mortage', 'Investment', 'Car Leans', 'Total'],
-            tableData: [
-                ['1', '$123456', '$123456'],
-                ['3', '$123456', '$123456'],
-                ['1', '$123456', '$123456'],
-                ['5', '$123456', '$123456']
-            ],
-            NewtableHead: ['Account\nType', 'Status', 'Monthly\nPayment', 'Account\n Balance'],
-            newTableTitle: ['Mortage', 'Investment', 'Car Leans', 'Total'],
-            newTableData: [
-                ['Open', '$1234', '3'],
-                ['Closed', '$4567', '2'],
-                ['Delinquent', '$8910', '1'],
-                ['Total', '$14711', '6']
-            ]
-        };
-    }
 
-    render() {
-        const { tableHead, tableTitle, tableData, newTableTitle, newTableData, NewtableHead } = this.state;
-        return (
-            <SafeAreaView className='bg-white flex-1'>
-                <View className='px-5'>
-                    <View className='mt-3 flex-row items-center justify-between'>
-                        <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                            <Image source={require("../assets/Arrow1.png")} />
-                        </TouchableOpacity>
-                        <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
-                        <Text className="text-[18px] font-normal text-black">David Walker</Text>
-                        <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
-                        <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
-                        <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-                    </View>
-                </View>
-                <View  style={{height:screenHeight*0.75}} className='mt-2'>
+
+const MoneyManagement2 = () => {
+
+    const tableHead = ['Account Type', 'Total Number', 'Balance', 'Credit Limit'];
+    const tableData = [
+        ['Mortage', '1', '$123456', '$123456'],
+        ['Investment', '3', '$123456', '$123456'],
+        ['Car Loans', '1', '$123456', '$123456'],
+        ['Total', '5', '$123456', '$123456'],
+    ];
+
+    const tableHead2 = ['Account Type', 'Status', 'Monthly Payment', 'Accounts With Balance'];
+    const tableData2 = [
+        ['Mortage', 'Open', '$123456', '1'],
+        ['Investment', 'Never', '$123456', '3'],
+        ['Car Loans', 'Late', '$123456', '1'],
+        ['Total', 'Open', '$123456', '5'],
+    ];
+    const barData = [
+        {
+            value: 30, frontColor: '#71c4ca', topLabelComponent: () => (
+                <Text style={{ color: 'black', fontSize: 13, marginBottom: 6 }}>30</Text>
+            ),
+        },
+        {
+            value: 40, frontColor: '#eedb85', topLabelComponent: () => (
+                <Text style={{ color: 'black', fontSize: 13, marginBottom: 6 }}>40</Text>
+            ),
+        },
+        {
+            value: 60, frontColor: '#f08699', topLabelComponent: () => (
+                <Text style={{ color: 'black', fontSize: 13, marginBottom: 6 }}>60</Text>
+            ),
+        },
+
+    ];
+
+    return (
+        <SafeAreaView className='bg-white flex-1'>
+            <Header />
+            <View style={{ height: screenHeight * 0.75 }} className='mt-2'>
                 <ScrollView className='px-5'>
                     <View>
                         <View className='w-full bg-[#152425] p-2 rounded-tl-xl rounded-tr-xl'>
@@ -112,31 +98,52 @@ export default class MoneyManagement2 extends Component {
                                 Creating a "credit summary" text typically involves summarizing key details about an individual's or entity's credit status...
                             </Text>
 
-                  
-                            <View>
-                                <Table borderStyle={{ borderWidth: 0 }}>
-                                    <Row data={tableHead} flexArr={[1, 1, 1, 1]} style={styles.head} textStyle={styles.text1} />
-                                    <TableWrapper style={styles.wrapper}>
-                                        <Col data={tableTitle} style={styles.title} heightArr={[28, 28]} textStyle={styles.text2} />
-                                        <Rows data={tableData} flexArr={[1, 1, 1]} style={styles.row} textStyle={styles.text} />
-                                    </TableWrapper>
-                                </Table>
-                            </View>
+                            <ScrollView horizontal={true}>
+                                <View>
+                                    <View className='flex-row bg-[#2a484a]'>
+                                        {tableHead.map((head, index) => (
+                                            <View key={index} className='flex-1 w-[50px] p-2 border-r border-white'>
+                                                <Text className='text-white font-semibold text-xs'>{head}</Text>
+                                            </View>
+                                        ))}
+                                    </View>
 
-                         
-                            <View className='mt-2'>
-                                <Table borderStyle={{ borderWidth: 0 }}>
-                                    <Row data={NewtableHead} flexArr={[1, 1, 1, 1]} style={styles.head} textStyle={styles.text1} />
-                                    <TableWrapper style={styles.wrapper}>
-                                        <Col data={newTableTitle} style={styles.title} heightArr={[28, 28]} textStyle={styles.text2} />
-                                        <Rows data={newTableData} flexArr={[1, 1, 1]} style={styles.row} textStyle={styles.text} />
-                                    </TableWrapper>
-                                </Table>
-                            </View>
+                                    {tableData.map((rowData, rowIndex) => (
+                                        <View key={rowIndex} className={`flex-row ${rowIndex % 2 === 0 ? 'bg-gray-200' : 'bg-white'}`}>
+                                            {rowData.map((cellData, cellIndex) => (
+                                                <View key={cellIndex} className={`flex-1 p-1 w-[75px] border-r border-gray-300 ${cellIndex === 0 ? 'bg-gray-300' : ''}`}>
+                                                    <Text className='text-black text-[11px]'>{cellData}</Text>
+                                                </View>
+                                            ))}
+                                        </View>
+                                    ))}
+                                </View>
+                            </ScrollView>
+
+                            <ScrollView horizontal={true} className='mt-2'>
+                                <View>
+                                    <View className='flex-row bg-[#2a484a]'>
+                                        {tableHead2.map((head, index) => (
+                                            <View key={index} className='flex-1 w-[50px] p-2 border-r border-white'>
+                                                <Text className='text-white font-semibold text-xs'>{head}</Text>
+                                            </View>
+                                        ))}
+                                    </View>
+
+                                    {tableData2.map((rowData, rowIndex) => (
+                                        <View key={rowIndex} className={`flex-row ${rowIndex % 2 === 0 ? 'bg-gray-200' : 'bg-white'}`}>
+                                            {rowData.map((cellData, cellIndex) => (
+                                                <View key={cellIndex} className={`flex-1 p-1 w-[75px] border-r border-gray-300 ${cellIndex === 0 ? 'bg-gray-300' : ''}`}>
+                                                    <Text className='text-black text-[11px]'>{cellData}</Text>
+                                                </View>
+                                            ))}
+                                        </View>
+                                    ))}
+                                </View>
+                            </ScrollView>
+
                         </View>
                     </View>
-
-
                     <View className='my-2'>
                         <View className='w-full bg-[#2a484a] p-2 rounded-tl-xl rounded-tr-xl'>
                             <Text className='font-semibold text-white text-lg'>Debt by account type</Text>
@@ -269,30 +276,29 @@ export default class MoneyManagement2 extends Component {
 
 
 
-
                 </ScrollView>
-                </View>
+            </View>
 
-                <View className=' px-8 mt-3'>
-                    <LinearGradient
-                        colors={['#01101D', '#0078BB']}
-                        style={{ width: "300px", height: "0px", shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 120 }}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
-                    >
-                        <TouchableOpacity className='w-[300px] h-[40px] flex-row justify-center items-center' >
-                            <Text className='text-white text-[17px] font-normal'>Download PDF</Text>
-                            <Image className='ml-2 h-[17px] w-[17px]' source={require("../assets/download-circular-button.png")} />
-                        </TouchableOpacity>
-                    </LinearGradient>
-                </View>
-               
+            <View className=' px-8 mt-3'>
+                <LinearGradient
+                    colors={['#01101D', '#0078BB']}
+                    style={{ width: "300px", height: "0px", shadowColor: "#0078BB", shadowOffset: { width: 10, height: 10 }, shadowOpacity: 0.5, shadowRadius: 10, elevation: 10, borderRadius: 120 }}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                >
+                    <TouchableOpacity className='w-[300px] h-[40px] flex-row justify-center items-center' >
+                        <Text className='text-white text-[17px] font-normal'>Download PDF</Text>
+                        <Image className='ml-2 h-[17px] w-[17px]' source={require("../assets/download-circular-button.png")} />
+                    </TouchableOpacity>
+                </LinearGradient>
+            </View>
 
-                <MenuBar />
-            </SafeAreaView>
-        );
-    }
+            <BgImage />
+            <MenuBar />
+        </SafeAreaView>
+    );
 }
+
 
 const styles = StyleSheet.create({
     head: { height: 40, backgroundColor: '#2a484a', alignItems: "flex-start" },
@@ -303,3 +309,28 @@ const styles = StyleSheet.create({
     text1: { textAlign: "center", color: "white" },
     text2: { textAlign: "center", color: "black" },
 });
+
+
+export default MoneyManagement2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

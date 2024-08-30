@@ -371,9 +371,9 @@ const Retirement2 = () => {
                                         <Text className='font-bold text-white text-[13px]'>Clear</Text>
                                     </TouchableOpacity>
 
-                                    <View className='border border-[#003655] rounded-lg p-1'>
+                                    {/* <View className='border border-[#003655] rounded-lg p-1'>
                                         <Image className="w-6 h-6 " source={require("../assets/right-arrow.png")} />
-                                    </View>
+                                    </View> */}
 
                                 </View>
 

@@ -3,10 +3,17 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInpu
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const { height: screenHeight } = Dimensions.get("window");
 
 const AiAssistant = () => {
+
+    const navigation = useNavigation();
+
+
     const [search, setSearch] = useState("");
 
     const chatData = [
@@ -96,12 +103,16 @@ const AiAssistant = () => {
     return (
         <SafeAreaView className='bg-white flex-1'>
             <View className=' mt-3 px-5 flex-row items-center justify-between pb-3'>
-                <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
-                    <Image source={require("../assets/Arrow1.png")} />
+                <TouchableOpacity onPress={() => (navigation.goBack())}
+                    className='py-2 px-4 rounded-2xl bg-black/10'>
+                    <Image className="h-[16px] w-[18px]" source={require("../assets/back2.png")} />
                 </TouchableOpacity>
 
                 <Text className="text-[18px] font-normal text-black mr-5">Ai Assistant</Text>
-                <Image className='w-[12px] h-[12px]' source={require("../assets/close.png")} />
+                <TouchableOpacity  onPress={() => (navigation.navigate("Hub"))}>
+                    <Image className='w-[12px] h-[12px]' source={require("../assets/close.png")} />
+                </TouchableOpacity>
+
             </View>
 
             <Text className="text-[12px] text-center mt-2 font-normal text-black">Sat, Apr 2, 9:41 PM</Text>
@@ -136,12 +147,13 @@ const AiAssistant = () => {
                         onChangeText={setSearch}
                     />
                     <View className='flex-row items-center gap-x-3'>
-                    <Image className='w-4 h-4' source={require("../assets/send.png")} />
+                        <Image className='w-4 h-4' source={require("../assets/send.png")} />
                         <Image className='w-4 h-4' source={require("../assets/microphone-white.png")} />
                     </View>
 
                 </View>
             </View>
+            <BgImage/>
         </SafeAreaView>
     );
 };

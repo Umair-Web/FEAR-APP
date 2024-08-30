@@ -3,11 +3,14 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInpu
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+
 
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
 
 const ChatRoom = () => {
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView className='bg-white flex-1'>

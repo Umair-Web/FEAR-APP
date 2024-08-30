@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
-import { View, Text, SafeAreaView, ScrollView, Image, TextInput, Dimensions } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Image, TextInput, Dimensions,TouchableOpacity } from 'react-native';
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
 
 const { height: screenHeight } = Dimensions.get("window");
 
-const InsuranceAgent1= () => {
-    const [search, setSearch] = useState(""); 
+const InsuranceAgent1 = () => {
+    const navigation = useNavigation();
+    const [search, setSearch] = useState("");
+
+    const agents = [
+        { id: 1, name: "Agent 1", image: require("../assets/download.jpeg"), price: "$100", icon: "🖤",Link:"InsuranceAgent2" },
+        { id: 2, name: "Agent 2", image: require("../assets/download.jpeg"), price: "$150", icon: "🖤",Link:"InsuranceAgent2"},
+        { id: 3, name: "Agent 3", image: require("../assets/download.jpeg"), price: "$200", icon: "🖤",Link:"InsuranceAgent2"},
+        // Add more agents as needed
+    ];
+
     return (
         <SafeAreaView className='bg-white flex-1'>
             <Header />
@@ -30,12 +40,12 @@ const InsuranceAgent1= () => {
                         </View>
                     </View>
 
-                    <View className='flex-row mt-3 items-center gap-x-4 '>
+                    <View className='flex-row mt-3 items-center gap-x-4'>
                         <View className='w-[80%] bg-black/30 rounded-lg'>
-                            <View className='flex-row items-center px-2 gap-x-2 '>
+                            <View className='flex-row items-center px-2 gap-x-2'>
                                 <Image className='w-4 h-4' source={require("../assets/search.png")} />
                                 <TextInput
-                                    className=' h-11 text-base text-black font-normal'
+                                    className='h-11 text-base text-black font-normal'
                                     placeholder="Search"
                                     placeholderTextColor="#333"
                                     autoCapitalize="none"
@@ -47,43 +57,22 @@ const InsuranceAgent1= () => {
                         <View className='w-[20%]'>
                             <Image className='w-7 h-7' source={require("../assets/filter-black.png")} />
                         </View>
-
                     </View>
 
-                    <View className='flex-row flex-wrap full gap-4 mt-4'>
-                        <View className='w-[45%] flex-col items-start'>
-                            <Image className=' h-[195px] w-full rounded-t-lg object-contain' source={require("../assets/download.jpeg")} />
-                            <Text className='font-semibold text-sm text-[#146AEB] mt-2'>Agent 1</Text>
-                            <View className='flex-row w-full justify-between'>
-                                <Text className='font-semibold text-sm text-[#146AEB]'>$100</Text>
-                                <View className='flex-row items-center gap-x-1'>
-                                    <Text className='font-normal text-xs text-[#146AEB]'>🖤</Text>
-                                    <Text className='font-normal text-xs text-[#146AEB]'>$100</Text>
+                    <View className='flex-row flex-wrap gap-4 mt-4'>
+                        {agents.map(agent => (
+                            <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate(agent.Link))} key={agent.id} className='w-[45%] flex-col items-start'>
+                                <Image className='h-[195px] w-full rounded-t-lg object-contain' source={agent.image} />
+                                <Text className='font-semibold text-sm text-[#146AEB] mt-2'>{agent.name}</Text>
+                                <View className='flex-row w-full justify-between'>
+                                    <Text className='font-semibold text-sm text-[#146AEB]'>{agent.price}</Text>
+                                    <View className='flex-row items-center gap-x-1'>
+                                        <Text className='font-normal text-xs text-[#146AEB]'>{agent.icon}</Text>
+                                        <Text className='font-normal text-xs text-[#146AEB]'>{agent.price}</Text>
+                                    </View>
                                 </View>
-                            </View>
-                        </View>
-                        <View className='w-[45%] flex-col items-start'>
-                            <Image className=' h-[195px] w-full rounded-t-lg object-contain' source={require("../assets/download.jpeg")} />
-                            <Text className='font-semibold text-sm text-[#146AEB] mt-2'>Agent 1</Text>
-                            <View className='flex-row w-full justify-between'>
-                                <Text className='font-semibold text-sm text-[#146AEB]'>$100</Text>
-                                <View className='flex-row items-center gap-x-1'>
-                                    <Text className='font-normal text-xs text-[#146AEB]'>🖤</Text>
-                                    <Text className='font-normal text-xs text-[#146AEB]'>$100</Text>
-                                </View>
-                            </View>
-                        </View>
-                        <View className='w-[45%] flex-col items-start'>
-                            <Image className=' h-[195px] w-full rounded-t-lg object-contain' source={require("../assets/download.jpeg")} />
-                            <Text className='font-semibold text-sm text-[#146AEB] mt-2'>Agent 1</Text>
-                            <View className='flex-row w-full justify-between'>
-                                <Text className='font-semibold text-sm text-[#146AEB]'>$100</Text>
-                                <View className='flex-row items-center gap-x-1'>
-                                    <Text className='font-normal text-xs text-[#146AEB]'>🖤</Text>
-                                    <Text className='font-normal text-xs text-[#146AEB]'>$100</Text>
-                                </View>
-                            </View>
-                        </View>
+                            </TouchableOpacity>
+                        ))}
                     </View>
                 </ScrollView>
             </View>

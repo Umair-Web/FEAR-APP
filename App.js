@@ -73,6 +73,7 @@ import Retirement2 from './src/pages/Retirement2';
 import ExperimentScreen from './src/pages/ExperimentScreen';
 import RetirementGoals from './src/pages/RetirementGoals';
 import Investments from './src/pages/Investments';
+import Invest3 from './src/pages/Invest3';
 import Invest4 from './src/pages/Invest4';
 import SpendingCategory from './src/pages/SpendingCategory';
 import Investments2 from './src/pages/Investments2';
@@ -83,6 +84,7 @@ import TaxRothGraphs from './src/pages/TaxRothGraphs';
 import TaxEfficientWithdrawal from './src/pages/TaxEfficientWithdrawal';
 import ExpenseTrackingText from './src/pages/ExpenseTrackingText';
 import RetiremnentBudgetPlanner from './src/pages/RetirementBudgetPlanner';
+import InsuranceLinks from './src/pages/InsuranceLinks';
 import InsurancePolicyManagement from './src/pages/InsurancePolicyManagement';
 import PremiumSummary from './src/pages/PremiumSummary';
 import PaymentReminder from './src/pages/PaymentReminder';
@@ -90,17 +92,24 @@ import LifeInsuranceCalculator from './src/pages/LifeInsuranceCalculator';
 import Insurance from './src/pages/Insurance';
 import InsuranceAgent1 from './src/pages/InsuranceAgent1';
 import InsuranceAgent2 from './src/pages/InsuranceAgent2';
+import TaxEducationLinks from './src/pages/TaxEducationLinks';
 import RealState from './src/pages/RealState';
 import RealState2 from './src/pages/RealState2';
 import MarketAnalysis from './src/pages/MarketAnalysis';
 import PropertyPriceIndes from './src/pages/PropertyPriceIndes';
 import ROICalculator from './src/pages/ROICalculator';
+import Calculator from './src/pages/Calculator';
+import MortageRates from './src/pages/MortageRates';
+import SavingVehicles from './src/pages/SavingVehicles';
+import TaxDeductionGuide from './src/pages/TaxDeductionGuide';
+import RichKnowledge from './src/pages/RichKnowledge';
+import StartTaxes from './src/pages/StartTaxes';
 const Stack = createNativeStackNavigator();
 function App() {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='ROICalculator' screenOptions={{
+      <Stack.Navigator initialRouteName='Dashboard' screenOptions={{
       headerShown: false,animation:"fade_from_bottom",animationDuration:600
     }}>
         <Stack.Screen name="GetStarted" component={GetStarted} />
@@ -174,7 +183,7 @@ function App() {
         <Stack.Screen name="Retirement2" component={Retirement2} />
         <Stack.Screen name="RetirementGoals" component={RetirementGoals} />
         <Stack.Screen name="Investments" component={Investments} />
-
+        <Stack.Screen name="Invest3" component={Invest3} />
         <Stack.Screen name="Invest4" component={Invest4} />
         <Stack.Screen name="SpendingCategory" component={SpendingCategory} />
         <Stack.Screen name="Investments2" component={Investments2} />
@@ -185,6 +194,7 @@ function App() {
         <Stack.Screen name="TaxEfficientWithdrawal" component={TaxEfficientWithdrawal} />
         <Stack.Screen name="ExpenseTrackingText" component={ExpenseTrackingText} />
         <Stack.Screen name="RetiremnentBudgetPlanner" component={RetiremnentBudgetPlanner} />
+        <Stack.Screen name="InsuranceLinks" component={InsuranceLinks} />
         <Stack.Screen name="InsurancePolicyManagement" component={InsurancePolicyManagement} />
         <Stack.Screen name="PremiumSummary" component={PremiumSummary} />
         <Stack.Screen name="PaymentReminder" component={PaymentReminder} />
@@ -192,11 +202,18 @@ function App() {
         <Stack.Screen name="Insurance" component={Insurance} />
         <Stack.Screen name="InsuranceAgent1" component={InsuranceAgent1} />
         <Stack.Screen name="InsuranceAgent2" component={InsuranceAgent2} />
+        <Stack.Screen name="TaxEducationLinks" component={TaxEducationLinks} />
         <Stack.Screen name="RealState" component={RealState} />
         <Stack.Screen name="RealState2" component={RealState2} />
         <Stack.Screen name="MarketAnalysis" component={MarketAnalysis} />
         <Stack.Screen name="PropertyPriceIndes" component={PropertyPriceIndes} />
         <Stack.Screen name="ROICalculator" component={ROICalculator} />
+        <Stack.Screen name="Calculator" component={Calculator} />
+        <Stack.Screen name="MortageRates" component={MortageRates} />
+        <Stack.Screen name="SavingVehicles" component={SavingVehicles} />
+        <Stack.Screen name="TaxDeductionGuide" component={TaxDeductionGuide} />
+        <Stack.Screen name="RichKnowledge" component={RichKnowledge} />
+        <Stack.Screen name="StartTaxes" component={StartTaxes} />
         
 
         

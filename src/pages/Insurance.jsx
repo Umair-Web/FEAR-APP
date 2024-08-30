@@ -6,8 +6,11 @@ import Header from '../Components/Header';
 import LinearGradient from 'react-native-linear-gradient';
 const { height: screenHeight } = Dimensions.get("window");
 const { width: screenWidth } = Dimensions.get("window");
+import { useNavigation } from '@react-navigation/native';
+
 
 const Insurance = () => {
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView className='bg-white flex-1'>
@@ -22,7 +25,7 @@ const Insurance = () => {
                                 start={{ x: 1, y: 0 }}
                                 end={{ x: 1, y: 1 }}
                             >
-                                <View className='flex-col items-center gap-y-10 p-2'>
+                                <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("InsuranceAgent1"))} className='flex-col items-center gap-y-10 p-2'>
                                     <Text className='font-medium text-white text-base'>
                                         Our Agents
                                     </Text>
@@ -51,7 +54,7 @@ const Insurance = () => {
                                         </View>
                                     </View>
 
-                                </View>
+                                </TouchableOpacity>
 
 
                             </LinearGradient>
@@ -64,7 +67,7 @@ const Insurance = () => {
                                 start={{ x: 1, y: 0 }}
                                 end={{ x: 1, y: 1 }}
                             >
-                                <View className='items-center justify-center p-2 gap-y-2'>
+                                <TouchableOpacity activeOpacity={1}  delayPressIn={1} onPress={()=>(navigation.navigate("InsuranceAgent1"))} className='items-center justify-center p-2 gap-y-2'>
                                     <Image className='w-6 h-6' source={require("../assets/chat.png")} />
 
                                     <Text className='font-semibold text-base text-center text-white'>
@@ -78,7 +81,7 @@ const Insurance = () => {
 
 
 
-                                </View>
+                                </TouchableOpacity>
 
                             </LinearGradient>
                         </View>
@@ -113,7 +116,7 @@ const Insurance = () => {
 
 
 
-                    <ScrollView showsHorizontalScrollIndicator={false} horizontal={true } className='mt-4 gap-x-4'>
+                    <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} className='mt-4 gap-x-4'>
 
                         <LinearGradient
                             colors={['#2364ad', '#87bbf2']}
@@ -128,13 +131,13 @@ const Insurance = () => {
                                 </View>
 
                                 <Text className='font-semibold text-base text-center text-white'>
-                                Most popular
-                                plans
+                                    Most popular
+                                    plans
                                 </Text>
 
                                 <View className='items-center justify-center px-3 rounded-2xl py-1 bg-[#CAC9FF]'>
                                     <Text className='font-normal text-xs text-white'>
-                                       click
+                                        click
                                     </Text>
 
                                 </View>
@@ -158,12 +161,12 @@ const Insurance = () => {
                                 </View>
 
                                 <Text className='font-semibold text-base text-center text-white'>
-                                Value for money plans
+                                    Value for money plans
                                 </Text>
 
                                 <View className='items-center justify-center px-3 rounded-2xl py-1 bg-[#CAC9FF]'>
                                     <Text className='font-normal text-xs text-white'>
-                                       click
+                                        click
                                     </Text>
 
                                 </View>
@@ -188,12 +191,12 @@ const Insurance = () => {
                                 </View>
 
                                 <Text className='font-semibold text-base text-center text-white'>
-                                Value for money plans
+                                    Value for money plans
                                 </Text>
 
                                 <View className='items-center justify-center px-3 rounded-2xl py-1 bg-[#CAC9FF]'>
                                     <Text className='font-normal text-xs text-white'>
-                                       click
+                                        click
                                     </Text>
 
                                 </View>

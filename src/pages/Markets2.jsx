@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, SafeAreaView, TextInput, processColor, TouchableOpacity, Image, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard } from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, Image, StyleSheet, processColor, Dimensions, ScrollView } from 'react-native';
+import { CandleStickChart } from 'react-native-charts-wrapper';
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
+import Header from '../Components/Header';
+const { height: screenHeight } = Dimensions.get("window");
+const { width: screenWidth } = Dimensions.get("window");
 
 
 const Markets2 = () => {
@@ -11,96 +15,242 @@ const Markets2 = () => {
         setSelected(value);
     };
 
+    const candleData = {
+        dataSets: [{
+            values: [
+                { shadowH: 34563, shadowL: 33982, open: 34450, close: 34265 },
+                { shadowH: 34453, shadowL: 34123, open: 34342, close: 34200 },
+                { shadowH: 34400, shadowL: 34000, open: 34200, close: 34100 },
+                { shadowH: 34600, shadowL: 34200, open: 34500, close: 34300 },
+                { shadowH: 34400, shadowL: 34000, open: 34200, close: 34100 }
+            ],
+            label: 'Stock Data',
+            config: {
+                highlightColor: processColor('red'),
+                shadowColor: processColor('black'),
+                shadowWidth: 1,
+                shadowColorSameAsCandle: true,
+                increasingColor: processColor('blue'),
+                increasingPaintStyle: 'FILL',
+                decreasingColor: processColor('red'),
+                decreasingPaintStyle: 'FILL',
+            }
+        }]
+    };
+
+    const xAxis = {
+        drawLabels: true,
+        position: 'BOTTOM',
+        drawGridLines: false,
+        granularityEnabled: true,
+        granularity: 1,
+        valueFormatter: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
+    };
+
+    const yAxis = {
+        left: {
+            enabled: true,
+            drawGridLines: false,
+        },
+        right: {
+            enabled: false,
+        },
+    };
 
     return (
-        <SafeAreaView className='bg-white flex-1'>
-            <View>
-                {/* Header */}
-                <View className='px-5 mt-3 flex-row items-center justify-between'>
-                    <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+            <Header />
+            <View className='px-5' style={{ height: screenHeight * 0.8 }}>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    {/* Header */}
+
+                    {/* <View style={styles.headerContainer}>
+                    <TouchableOpacity style={styles.headerButton}>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
-                    <Image className='w-[43px] h-[43px] rounded-full' source={require("../assets/download.jpeg")} />
-                    <Text className="text-[18px] font-normal text-black">David Walker</Text>
-                    <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
-                    <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
-                    <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-                </View>
-                <Text className='text-[44px] font-medium text-black text-center mt-3'>$2,432.32</Text>
-                <View className='items-center'>
-                    <View className='items-center flex-row gap-x-1'>
-                        <Text className='text-[12px] font-normal text-red-700'>-13.35% (24h)</Text>
-                        <Image className='w-3 h-3' source={require("../assets/down.png")} />
-                        <Image />
-                    </View>
-                </View>
-                <View className='items-center px-8'>
-                    <View className="mt-2 flex-row items-center  bg-[#F2F2F2] p-2 rounded-lg">
-                        <TouchableOpacity
-                            onPress={() => handleSelect('1h')}
-                            className={`px-4 py-2 rounded-lg w-1/3 ${selected === '1h' ? 'bg-white ' : 'bg-[#F2F2F2]'
-                                }`}
-                        >
-                            <Text className={`text-sm font-medium text-center  ${selected === '1h' ? "text-blue-500" : "text-black"}`} >1h</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => handleSelect('24h')}
-                            className={`ml-2 px-4 py-2 rounded-lg w-1/3  ${selected === '24h' ? 'bg-white ' : 'bg-[#F2F2F2]'
-                                }`}
-                        >
-                            <Text className={`text-sm font-medium text-center  ${selected === '24h' ? "text-blue-500" : "text-black"}`} >24h</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={() => handleSelect('1w')}
-                            className={`ml-2 px-4 py-2 rounded-lg w-1/3  ${selected === '1w' ? 'bg-white ' : 'bg-[#F2F2F2]'
-                                }`}
-                        >
-                            <Text className={`text-sm font-medium text-center  ${selected === '1w' ? "text-blue-500" : "text-black"}`} >1w</Text>
-                        </TouchableOpacity>
+                    <Image style={styles.profileImage} source={require("../assets/download.jpeg")} />
+                    <Text style={styles.profileName}>David Walker</Text>
+                    <Image style={styles.headerIcon} source={require("../assets/bell-black.png")} />
+                    <Image style={styles.headerIcon} source={require("../assets/question-black.png")} />
+                    <Image style={styles.headerIcon} source={require("../assets/settings-black.png")} />
+                </View> */}
+                    <Text style={styles.balanceText}>$2,432.32</Text>
+                    <View style={styles.percentageContainer}>
+                        <Text style={styles.percentageText}>-13.35% (24h)</Text>
+                        <Image style={styles.percentageIcon} source={require("../assets/down.png")} />
                     </View>
 
-                </View>
-
-                <View className='px-6'>
-                 {/* here */}
-                </View>
-
-                <View className='px-5 mt-2'>
-                    <View className='flex-row items-center justify-between py-3 border-t-[1px]  border-b-[1px] border-[#F2F2F2] '>
-                        <Text className='font-medium text-[#83878C] text-[12px]'>Open</Text>
-                        <View className='flex-row items-center gap-x-2'>
-                        <Text className='font-medium text-[#27292C] text-[14px]'>35632.12</Text>
-                        <Text className='font-medium text-[#83878C] text-[12px]'>High</Text>
-                        </View>
-                        <Text className='font-medium text-[#27292C] text-[14px]'>35621.90</Text>
+                    {/* Time Selector */}
+                    <View style={styles.timeSelectorContainer}>
+                        {['1h', '24h', '1w'].map(time => (
+                            <TouchableOpacity
+                                key={time}
+                                onPress={() => handleSelect(time)}
+                                style={[styles.timeButton, selected === time && styles.selectedTimeButton]}
+                            >
+                                <Text style={[styles.timeText, selected === time && styles.selectedTimeText]}>
+                                    {time}
+                                </Text>
+                            </TouchableOpacity>
+                        ))}
                     </View>
-                    
 
-                    <View className='flex-row items-center justify-between py-3 border-t-[1px]  border-b-[1px] border-[#F2F2F2] '>
-                        <Text className='font-medium text-[#83878C] text-[12px]'>Close</Text>
-                        <View className='flex-row items-center gap-x-2'>
-                        <Text className='font-medium text-[#27292C] text-[14px]'>33432.42</Text>
-                        <Text className='font-medium text-[#83878C] text-[12px]'>Low</Text>
-                        </View>
-                        <Text className='font-medium text-[#27292C] text-[14px]'>33421.30</Text>
+                    {/* Candlestick Chart */}
+                    <View style={styles.chartContainer}>
+                        <CandleStickChart
+                            style={styles.chart}
+                            data={candleData}
+                            xAxis={xAxis}
+                            yAxis={yAxis}
+                            chartDescription={{ text: '' }}
+                            legend={{ enabled: false }}
+                            autoScaleMinMaxEnabled={true}
+                            drawGridBackground={false}
+                            scaleEnabled={true}
+                            pinchZoom={true}
+                            doubleTapToZoomEnabled={true}
+                            highlightPerDragEnabled={true}
+                            marker={{ enabled: true }}
+                        />
                     </View>
-                    
 
-                    <View className='flex-row items-center justify-between py-3 border-t-[1px]  border-b-[1px] border-[#F2F2F2] '>
-                        <Text className='font-medium text-[#83878C] text-[12px]'>Daily Vol</Text>
-                        <View className='flex-row items-center gap-x-2'>
-                        <Text className='font-medium text-[#27292C] text-[14px]'>35632.12</Text>
-                        <Text className='font-medium text-[#83878C] text-[12px]'>Market Cap</Text>
-                        </View>
-                        <Text className='font-medium text-[#27292C] text-[14px]'>1.324M</Text>
+                    {/* Market Details */}
+                    <View style={styles.marketDetailsContainer}>
+                        {[
+                            { label: 'Open', value1: '35632.12', label2: 'High', value2: '35621.90' },
+                            { label: 'Close', value1: '33432.42', label2: 'Low', value2: '33421.30' },
+                            { label: 'Daily Vol', value1: '35632.12', label2: 'Market Cap', value2: '1.324M' },
+                        ].map((item, index) => (
+                            <View key={index} style={styles.marketDetailRow}>
+                                <Text style={styles.detailLabel}>{item.label}</Text>
+                                <View style={styles.detailValueContainer}>
+                                    <Text style={styles.detailValue}>{item.value1}</Text>
+                                    <Text style={styles.detailLabel}>{item.label2}</Text>
+                                </View>
+                                <Text style={styles.detailValue}>{item.value2}</Text>
+                            </View>
+                        ))}
                     </View>
-                    
-                </View>
+                </ScrollView>
+
             </View>
             <MenuBar />
             <BgImage />
         </SafeAreaView>
     );
 };
+
+const styles = StyleSheet.create({
+    headerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 15,
+        marginTop: 10,
+    },
+    headerButton: {
+        padding: 10,
+        borderRadius: 15,
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    },
+    profileImage: {
+        width: 43,
+        height: 43,
+        borderRadius: 21.5,
+    },
+    profileName: {
+        fontSize: 18,
+        fontWeight: 'normal',
+        color: 'black',
+    },
+    headerIcon: {
+        width: 20,
+        height: 20,
+    },
+    balanceText: {
+        fontSize: 44,
+        fontWeight: '500',
+        textAlign: 'center',
+        marginTop: 10,
+        color: 'black',
+    },
+    percentageContainer: {
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 5,
+    },
+    percentageText: {
+        fontSize: 12,
+        color: 'red',
+        marginRight: 5,
+    },
+    percentageIcon: {
+        width: 12,
+        height: 12,
+    },
+    timeSelectorContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        backgroundColor: '#F2F2F2',
+        padding: 5,
+        borderRadius: 15,
+        marginHorizontal: 20,
+        marginTop: 15,
+    },
+    timeButton: {
+        flex: 1,
+        padding: 10,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    selectedTimeButton: {
+        backgroundColor: 'white',
+    },
+    timeText: {
+        fontSize: 14,
+        fontWeight: '500',
+        color: 'black',
+    },
+    selectedTimeText: {
+        color: 'blue',
+    },
+    chartContainer: {
+        paddingHorizontal: 20,
+        marginTop: 20,
+    },
+    chart: {
+        height: 300,
+        backgroundColor: 'white',
+    },
+    marketDetailsContainer: {
+        paddingHorizontal: 20,
+        marginTop: 20,
+    },
+    marketDetailRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingVertical: 10,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#F2F2F2',
+    },
+    detailLabel: {
+        fontSize: 12,
+        color: '#83878C',
+        fontWeight: '500',
+    },
+    detailValueContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    detailValue: {
+        fontSize: 14,
+        color: '#27292C',
+        fontWeight: '500',
+        marginLeft: 10,
+    },
+});
 
 export default Markets2;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native';
 import MenuBar from '../Components/MenuBar';
+import Header from '../Components/Header';
+import BgImage from '../Components/BgImage';
 
 
 const Discover = () => {
@@ -10,7 +12,7 @@ const Discover = () => {
         <SafeAreaView className='bg-white flex-1'>
 
             <View className=''>
-                <View className='px-5 mt-3 flex-row items-center justify-between'>
+                {/* <View className='px-5 mt-3 flex-row items-center justify-between'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
                     </TouchableOpacity>
@@ -19,7 +21,9 @@ const Discover = () => {
                     <Image className='w-[20px] h-[20px]' source={require("../assets/bell-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
-                </View>
+                </View> */}
+
+                <Header/>
 
                 <Text className='text-[17px] font-medium text-black px-8 mb-2 mt-2'>Trading</Text>
                 <View className='flex-row items-center justify-center gap-x-2 py-2 border-t-[1px] border-b-[1px] border-black'>
@@ -35,7 +39,7 @@ const Discover = () => {
 
                 </View>
 
-                <ScrollView className='px-8 mt-1 gap-x-3' horizontal={true} showsHorizontalScrollIndicator={false}>
+                <ScrollView className='px-8 mt-1 gap-x-3 ' horizontal={true} showsHorizontalScrollIndicator={false}>
                     <View className='w-[169px] h-[88px] border-[1px] border-[#DCDCDC] rounded-xl flex-col items-start px-2 py-1'>
                         <View className="gap-y-3">
                             <Text className='text-[17px] font-medium text-black'>
@@ -77,6 +81,11 @@ const Discover = () => {
                         </View>
 
                     </View>
+
+                    <View className='w-[169px] h-[88px] '>
+                        
+                    </View>
+
 
                 </ScrollView>
 
@@ -128,6 +137,12 @@ const Discover = () => {
                             </View>
 
                         </View>
+
+                    </View>
+
+
+                    <View className='w-[169px] h-[88px]'>
+                        
 
                     </View>
 
@@ -208,6 +223,7 @@ const Discover = () => {
 
 
             <MenuBar />
+            <BgImage/>
         </SafeAreaView>
 
     );

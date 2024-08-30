@@ -3,10 +3,13 @@ import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, TextInpu
 import MenuBar from '../Components/MenuBar';
 import BgImage from '../Components/BgImage';
 import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+
 
 const { height: screenHeight } = Dimensions.get("window");
 
 const Retirement = () => {
+    const navigation = useNavigation();
     const [currentAge, setCurrentAge] = useState('');
     const [retirementAge, setRetirementAge] = useState('');
     const [lifeExpectancy, setLifeExpectancy] = useState('');
@@ -198,9 +201,9 @@ const Retirement = () => {
                             <TouchableOpacity className='bg-[#929292] items-center justify-center px-4 py-2 rounded-md'>
                                 <Text className='font-bold text-white text-[13px]'>Clear</Text>
                             </TouchableOpacity>
-                            <View className='border border-[#003655] rounded-lg p-1'>
+                            <TouchableOpacity  delayPressIn={1} onPress={()=>(navigation.navigate("Retirement2"))} className='border border-[#003655] rounded-lg p-1'>
                                 <Image className="w-6 h-6 " source={require("../assets/right-arrow.png")} />
-                            </View>
+                            </TouchableOpacity>
                         </View>
 
                     </View>

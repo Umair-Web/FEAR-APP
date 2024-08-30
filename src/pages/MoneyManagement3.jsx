@@ -2,7 +2,14 @@ import React, { useState } from 'react'
 import { Image, SafeAreaView, Text, View, TouchableWithoutFeedback, KeyboardAvoidingView, Keyboard, TextInput, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
 import MenuBar from '../Components/MenuBar';
 import LinearGradient from 'react-native-linear-gradient';
+import Header from '../Components/Header';
+import { useNavigation } from '@react-navigation/native';
+import BgImage from '../Components/BgImage';
+
+
+
 const MoneyManagement3 = () => {
+    const navigation = useNavigation();
     const options = [
         { id: 1, label: 'This is not my account' },
         { id: 2, label: 'I have nerver paid late' },
@@ -58,7 +65,8 @@ const MoneyManagement3 = () => {
 
     return (
         <SafeAreaView className='bg-white flex-1'>
-            <View className='px-5'>
+            <Header/>
+            {/* <View className='px-5'>
                 <View className='mt-3 flex-row items-center justify-between'>
                     <TouchableOpacity className='py-2 px-4 rounded-2xl bg-black/10'>
                         <Image source={require("../assets/Arrow1.png")} />
@@ -69,7 +77,7 @@ const MoneyManagement3 = () => {
                     <Image className='w-[18px] h-[18px]' source={require("../assets/question-black.png")} />
                     <Image className='w-[18px] h-[18px]' source={require("../assets/settings-black.png")} />
                 </View>
-            </View>
+            </View> */}
             <Text className='font-bold text-black text-[16px] mt-2 px-5'>Credit Repost Dispute Form</Text>
             <Text className='font-normal text-black text-[12px] px-5'>Found inaccuracies in your report? if so, use thid form to contact the credit bureau (Experian,Equifax, or TransUnion) that sipplied the information. Simply follow the instruction provided,then main the form to the appropriate credit bureau.</Text>
 
@@ -408,7 +416,7 @@ const MoneyManagement3 = () => {
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
                     >
-                        <TouchableOpacity className='w-[300px] h-[40px] flex-row justify-center items-center' >
+                        <TouchableOpacity onPress={()=>(navigation.navigate("RichKnowledge"))} className='w-[300px] h-[40px] flex-row justify-center items-center' >
                             <Text className='text-white text-[13px] font-normal'>For more information Contact Rich Work</Text>
                            
                         </TouchableOpacity>
@@ -416,6 +424,8 @@ const MoneyManagement3 = () => {
                 </View>
            
        <MenuBar/>
+
+       <BgImage/>
 
         </SafeAreaView>
     )
